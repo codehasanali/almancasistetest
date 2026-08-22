@@ -1,0 +1,114 @@
+<main class="about-page">
+	<section class="about-hero">
+		<div class="about-container hero-grid">
+			<div class="hero-copy">
+				<p class="eyebrow"><span></span> Deutschzeit hakkında</p>
+				<h1>Almancayı hedeflerinize açılan bir <em>kapıya</em> dönüştürüyoruz.</h1>
+				<p>Deutschzeit, Almanca öğrenmek isteyen öğrencileri deneyimli eğitmenler, doğru yöntemler ve kişiye uygun eğitim programlarıyla buluşturan online eğitim merkezidir.</p>
+			</div>
+			<div class="hero-image">
+				<img src="/german-course.jpg" alt="Birlikte Almanca çalışan Deutschzeit öğrencileri" width="700" height="520" fetchpriority="high" />
+				<div aria-hidden="true"><span></span><span></span><span></span></div>
+			</div>
+		</div>
+	</section>
+
+	<section class="story">
+		<div class="about-container story-grid">
+			<div class="story-title">
+				<p>Biz kimiz?</p>
+				<h2>Her öğrenci için doğru tempo, doğru program.</h2>
+			</div>
+			<div class="story-copy">
+				<p>Almanca öğrenmenin yalnızca dil bilgisi kurallarını ezberlemekten ibaret olmadığına inanıyoruz. Etkili bir eğitim; öğrencinin hedefini anlamak, mevcut seviyesini doğru belirlemek ve gelişimini yakından takip etmekle başlar.</p>
+				<p>Bu nedenle Deutschzeit’ta A1 seviyesinden C1 seviyesine, günlük iletişimden akademik ve mesleki Almancaya kadar her programı öğrencilerimizin ihtiyaçlarına göre planlıyoruz. Canlı online derslerimizde geleneksel sınıf eğitiminin etkileşimini dijital eğitimin esnekliğiyle bir araya getiriyoruz.</p>
+			</div>
+		</div>
+	</section>
+
+	<section class="principles" aria-labelledby="principles-title">
+		<div class="about-container">
+			<div class="principles-heading">
+				<p>Yaklaşımımız</p>
+				<h2 id="principles-title">Eğitim anlayışımızın temelinde ne var?</h2>
+			</div>
+			<div class="principle-list">
+				<article><span>01</span><h3>Kişiye Özel Planlama</h3><p>Seviyenizi, hedefinizi ve zaman planınızı dikkate alan doğru eğitim rotası.</p></article>
+				<article><span>02</span><h3>Aktif İletişim</h3><p>Dersin her aşamasında konuşma, dinleme ve gerçek yaşam uygulamalarına katılım.</p></article>
+				<article><span>03</span><h3>Sürekli Takip</h3><p>Düzenli geri bildirimlerle ölçülen gelişim ve ihtiyaç duyduğunuz noktada destek.</p></article>
+				<article><span>04</span><h3>Sonuç Odaklı Eğitim</h3><p>Sertifika, eğitim, kariyer veya günlük yaşam hedefinize yönelik somut ilerleme.</p></article>
+			</div>
+		</div>
+	</section>
+
+	<section class="about-cta">
+		<div class="about-container cta-inner">
+			<div><p>Almanca yolculuğunuza başlayın</p><h2>Hedefinizi birlikte planlayalım.</h2></div>
+			<a href="/iletisim">Bizimle İletişime Geçin <span>→</span></a>
+		</div>
+	</section>
+</main>
+
+<style>
+	.about-page { --red: #dc0b20; --yellow: #f2b900; --ink: #1b1b1b; font-family: Inter, Arial, Helvetica, sans-serif; overflow: hidden; }
+	.about-container { width: min(1160px, calc(100% - 64px)); max-width: 100%; margin-inline: auto; }
+	.about-hero { padding: 82px 0 90px; background: #f7f6f3; }
+	.hero-grid { display: grid; grid-template-columns: 1fr .9fr; align-items: center; gap: clamp(55px, 8vw, 105px); }
+	.eyebrow { display: flex; margin: 0 0 20px; align-items: center; gap: 11px; color: var(--red); font-size: 10px; font-weight: 800; letter-spacing: .13em; text-transform: uppercase; }
+	.eyebrow span { width: 30px; height: 3px; background: var(--yellow); }
+	.hero-copy h1 { margin: 0; color: var(--ink); font-family: Georgia, 'Times New Roman', serif; font-size: clamp(45px, 5.2vw, 68px); font-weight: 500; letter-spacing: -.045em; line-height: 1.02; }
+	.hero-copy h1 em { color: var(--red); font-weight: 500; }
+	.hero-copy > p:last-child { max-width: 620px; margin: 27px 0 0; color: #68625b; font-size: 15px; line-height: 1.8; }
+	.hero-image { position: relative; padding: 18px 22px 22px 0; }
+	.hero-image::before { position: absolute; top: 0; right: 0; width: 78%; height: calc(100% - 22px); background: var(--red); content: ''; }
+	.hero-image img { position: relative; z-index: 1; display: block; width: 100%; aspect-ratio: 4 / 3; object-fit: cover; }
+	.hero-image > div { position: absolute; right: 0; bottom: 0; z-index: 2; display: grid; width: 75px; height: 18px; grid-template-columns: repeat(3, 1fr); }
+	.hero-image > div span:nth-child(1) { background: var(--ink); }
+	.hero-image > div span:nth-child(2) { background: var(--red); }
+	.hero-image > div span:nth-child(3) { background: var(--yellow); }
+
+	.story { padding: 100px 0; background: #fff; }
+	.story-grid { display: grid; grid-template-columns: .8fr 1.2fr; gap: clamp(60px, 9vw, 130px); }
+	.story-title > p, .principles-heading > p, .cta-inner > div > p { margin: 0 0 15px; color: var(--red); font-size: 10px; font-weight: 800; letter-spacing: .13em; text-transform: uppercase; }
+	.story-title h2, .principles-heading h2, .cta-inner h2 { margin: 0; color: var(--ink); font-family: Georgia, 'Times New Roman', serif; font-size: clamp(33px, 3.5vw, 47px); font-weight: 500; letter-spacing: -.035em; line-height: 1.12; }
+	.story-copy { padding-top: 25px; border-top: 3px solid var(--yellow); }
+	.story-copy p { margin: 0; color: #68625b; font-size: 14px; line-height: 1.9; }
+	.story-copy p + p { margin-top: 22px; }
+
+	.principles { padding: 95px 0 100px; background: var(--ink); color: #fff; }
+	.principles-heading { max-width: 720px; margin-bottom: 55px; }
+	.principles-heading > p { color: var(--yellow); }
+	.principles-heading h2 { color: #fff; }
+	.principle-list { display: grid; grid-template-columns: repeat(4, 1fr); border-top: 1px solid #3e3e3e; border-bottom: 1px solid #3e3e3e; }
+	.principle-list article { padding: 32px 27px 35px; }
+	.principle-list article + article { border-left: 1px solid #3e3e3e; }
+	.principle-list span { color: var(--yellow); font-family: Georgia, serif; font-size: 16px; }
+	.principle-list h3 { min-height: 52px; margin: 25px 0 12px; font-family: Georgia, serif; font-size: 21px; font-weight: 500; }
+	.principle-list p { margin: 0; color: #aaa7a3; font-size: 12px; line-height: 1.7; }
+
+	.about-cta { padding: 67px 0; background: var(--yellow); }
+	.cta-inner { display: flex; align-items: center; justify-content: space-between; gap: 40px; }
+	.cta-inner > div > p { color: var(--red); }
+	.cta-inner h2 { font-size: clamp(30px, 3vw, 42px); }
+	.cta-inner > a { display: inline-flex; min-height: 48px; align-items: center; gap: 18px; padding: 0 21px; background: var(--red); color: #fff; font-size: 10px; font-weight: 800; letter-spacing: .06em; text-decoration: none; text-transform: uppercase; white-space: nowrap; }
+	.cta-inner > a span { color: var(--yellow); font-size: 18px; }
+
+	@media (max-width: 850px) {
+		.hero-grid, .story-grid { grid-template-columns: 1fr; }
+		.hero-image { width: min(600px, 100%); }
+		.principle-list { grid-template-columns: repeat(2, 1fr); }
+		.principle-list article:nth-child(3) { border-top: 1px solid #3e3e3e; border-left: 0; }
+		.principle-list article:nth-child(4) { border-top: 1px solid #3e3e3e; }
+	}
+
+	@media (max-width: 620px) {
+		.about-container { width: calc(100% - 36px); }
+		.about-hero { padding: 58px 0 65px; }
+		.hero-grid { gap: 45px; }
+		.story, .principles { padding: 70px 0; }
+		.principle-list { grid-template-columns: 1fr; }
+		.principle-list article + article { border-top: 1px solid #3e3e3e; border-left: 0; }
+		.principle-list h3 { min-height: 0; }
+		.cta-inner { align-items: flex-start; flex-direction: column; }
+	}
+</style>

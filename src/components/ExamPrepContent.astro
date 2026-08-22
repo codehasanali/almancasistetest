@@ -1,0 +1,108 @@
+---
+const exams = [
+	{ id: 'goethe-telc-osd', title: 'Goethe / TELC / ÖSD', level: 'A1 - C1', logo: '/goethe-logo.png', logoAlt: 'Goethe-Institut', text: 'Hedeflediğiniz sertifika seviyesinin sınav formatını öğrenin; okuma, yazma, dinleme ve konuşma bölümlerine yönelik yoğun pratik yapın.', href: '/iletisim' },
+	{ id: 'testdaf', title: 'TestDaF Hazırlık', level: 'B2 - C1', logo: '/testdaf-logo.png', logoAlt: 'TestDaF', text: 'Akademik metin, grafik yorumlama, dinleme ve sözlü ifade çalışmalarını TestDaF formatına uygun deneme ve geri bildirimlerle geliştirin.', href: '/sinav-hazirligi/testdaf-hazirlik' },
+	{ id: 'abitur-matura', title: 'Abitur & Matura', level: 'Lise', text: 'Almanca edebiyat, metin analizi, yorumlama ve metin üretme becerilerini okul programınız ve sınav beklentileri doğrultusunda güçlendirin.', href: '/sinav-hazirligi/abitur-hazirlik' },
+	{ id: 'dsd', title: 'DSD 1-2 Hazırlık', level: 'B1 - C1', logo: '/dsd-hazirlik.jpg', logoAlt: 'Deutsches Sprachdiplom', text: 'Yazılı ve sözlü iletişim becerilerinizi DSD sınav yapısına göre geliştirin, proje sunumu ve sınav bölümlerine planlı şekilde hazırlanın.', href: '/sinav-hazirligi/dsd-1-hazirlik' },
+];
+---
+
+<main class="exam-page">
+	<section class="exam-hero">
+		<div class="page-container hero-grid">
+			<div>
+				<p class="label"><span></span> Sertifika ve sınav programları</p>
+				<h1>Sınav gününe<br /><em>hazır ve güvenli</em> girin.</h1>
+			</div>
+			<div class="hero-copy"><p>Almanca sınav sistemlerini bilen deneyimli eğitmenlerle hedefinize uygun çalışma planı oluşturun. Sınav formatını öğrenin, eksiklerinizi tamamlayın ve gerçek sınava uygun denemelerle performansınızı geliştirin.</p><a href="/iletisim">Program Danışmanlığı Alın <span>→</span></a></div>
+		</div>
+	</section>
+
+	<section class="exam-programs" aria-label="Almanca sınav hazırlık programları">
+		<div class="page-container exam-grid">
+			{exams.map((exam) => (
+				<article id={exam.id}>
+					<div class="program-top">
+						<div class="program-symbol">
+							{exam.logo ? <img src={exam.logo} alt={exam.logoAlt} loading="lazy" /> : <svg viewBox="0 0 64 64" aria-hidden="true"><path d="M16 5h24l10 10v42H16V5ZM40 5v11h10M23 27h20M23 34h14"></path><circle cx="38" cy="47" r="7"></circle><path d="m34 53-1 7 5-3 5 3-1-7"></path></svg>}
+						</div>
+						<span>{exam.level}</span>
+					</div>
+					<h2>{exam.title}</h2>
+					<p>{exam.text}</p>
+					<a href={exam.href}>Programı İnceleyin <span>→</span></a>
+				</article>
+			))}
+		</div>
+	</section>
+
+	<section class="method" aria-labelledby="method-title">
+		<div class="page-container method-grid">
+			<div class="method-heading"><p>Hazırlık yöntemimiz</p><h2 id="method-title">Yalnızca Almanca değil, sınav stratejisi de öğrenin.</h2></div>
+			<div class="method-list">
+				<article><span>01</span><div><h3>Seviye ve İhtiyaç Analizi</h3><p>Mevcut seviyeniz, hedef puanınız ve sınava kalan süreniz birlikte değerlendirilir.</p></div></article>
+				<article><span>02</span><div><h3>Sınava Özel Çalışma Planı</h3><p>Sınav bölümleri, konu eksikleri ve zaman yönetimi için kişisel program hazırlanır.</p></div></article>
+				<article><span>03</span><div><h3>Deneme ve Geri Bildirim</h3><p>Gerçek formata uygun uygulamalarla performansınız ölçülür ve hatalarınız geliştirilir.</p></div></article>
+			</div>
+		</div>
+	</section>
+
+	<section class="exam-cta"><div class="page-container cta-inner"><div><p>Sınav hedefinizi paylaşın</p><h2>Size uygun hazırlık programını birlikte oluşturalım.</h2></div><a href="/iletisim">Bilgi Alın <span>→</span></a></div></section>
+</main>
+
+<style>
+	.exam-page { --red: #dc0b20; --yellow: #f2b900; --ink: #1b1b1b; font-family: Inter, Arial, Helvetica, sans-serif; overflow: hidden; }
+	.page-container { width: min(1160px, calc(100% - 64px)); max-width: 100%; margin-inline: auto; }
+	.exam-hero { position: relative; padding: 88px 0 84px; background: var(--ink); color: #fff; }
+	.exam-hero::after { position: absolute; right: 0; bottom: 0; width: 32%; height: 6px; background: var(--yellow); content: ''; }
+	.hero-grid { display: grid; grid-template-columns: 1.05fr .85fr; align-items: end; gap: 90px; }
+	.label, .method-heading > p, .cta-inner p { display: flex; margin: 0 0 19px; align-items: center; gap: 11px; color: var(--yellow); font-size: 10px; font-weight: 800; letter-spacing: .13em; text-transform: uppercase; }
+	.label span { width: 29px; height: 3px; background: var(--red); }
+	h1 { margin: 0; font-family: Georgia, serif; font-size: clamp(50px, 5.7vw, 73px); font-weight: 500; letter-spacing: -.05em; line-height: .96; }
+	h1 em { color: var(--red); font-weight: 500; }
+	.hero-copy { padding-left: 27px; border-left: 1px solid #484848; }
+	.hero-copy p { margin: 0 0 27px; color: #aaa7a3; font-size: 14px; line-height: 1.8; }
+	.hero-copy a, .exam-grid a, .exam-cta a { display: inline-flex; align-items: center; gap: 14px; color: #fff; font-size: 9px; font-weight: 800; letter-spacing: .07em; text-decoration: none; text-transform: uppercase; }
+	.hero-copy a span, .exam-grid a span { color: var(--yellow); font-size: 18px; }
+
+	.exam-programs { padding: 100px 0; background: #f7f6f3; }
+	.exam-grid { display: grid; grid-template-columns: repeat(2, 1fr); border-top: 1px solid #dcd8d1; border-left: 1px solid #dcd8d1; }
+	.exam-grid article { min-width: 0; padding: 33px 34px 38px; border-right: 1px solid #dcd8d1; border-bottom: 1px solid #dcd8d1; background: #fff; }
+	.program-top { display: flex; min-height: 76px; align-items: center; justify-content: space-between; gap: 20px; }
+	.program-symbol { display: grid; width: 180px; height: 72px; place-items: start; }
+	.program-symbol img { display: block; width: 100%; height: 70px; object-fit: contain; object-position: left center; }
+	.program-symbol img[src*='goethe'] { width: 70px; }
+	.program-symbol svg { width: 55px; fill: none; stroke: var(--red); stroke-width: 1.4; stroke-linecap: round; stroke-linejoin: round; }
+	.program-top > span { padding: 7px 10px; background: #f6f1e1; color: #655e55; font-size: 8px; font-weight: 800; letter-spacing: .08em; text-transform: uppercase; }
+	.exam-grid h2 { margin: 25px 0 13px; color: var(--ink); font-family: Georgia, serif; font-size: 26px; font-weight: 500; }
+	.exam-grid article > p { min-height: 68px; margin: 0; color: #716b64; font-size: 12.5px; line-height: 1.75; }
+	.exam-grid a { margin-top: 23px; color: var(--ink); }
+	.exam-grid a span { color: var(--red); }
+
+	.method { padding: 100px 0; background: #fff; }
+	.method-grid { display: grid; grid-template-columns: .8fr 1.2fr; gap: 100px; }
+	.method-heading > p { color: var(--red); }
+	.method-heading h2, .cta-inner h2 { margin: 0; color: var(--ink); font-family: Georgia, serif; font-size: clamp(35px, 4vw, 49px); font-weight: 500; letter-spacing: -.035em; line-height: 1.1; }
+	.method-list { border-top: 1px solid #ddd9d2; }
+	.method-list article { display: grid; grid-template-columns: 42px 1fr; gap: 20px; padding: 27px 0; border-bottom: 1px solid #ddd9d2; }
+	.method-list article > span { color: var(--red); font-family: Georgia, serif; font-size: 16px; }
+	.method-list h3 { margin: 0 0 8px; color: var(--ink); font-family: Georgia, serif; font-size: 21px; font-weight: 500; }
+	.method-list p { margin: 0; color: #746e67; font-size: 12.5px; line-height: 1.7; }
+
+	.exam-cta { padding: 65px 0; background: var(--yellow); }
+	.cta-inner { display: flex; align-items: center; justify-content: space-between; gap: 45px; }
+	.cta-inner p { color: var(--red); }
+	.cta-inner h2 { max-width: 760px; font-size: clamp(29px, 3.2vw, 42px); }
+	.exam-cta a { min-height: 46px; padding: 0 19px; background: var(--red); white-space: nowrap; }
+	.exam-cta a span { color: var(--yellow); font-size: 18px; }
+
+	@media (max-width: 850px) { .hero-grid, .method-grid { grid-template-columns: 1fr; gap: 45px; } .exam-grid { grid-template-columns: 1fr; } .exam-grid article > p { min-height: 0; } }
+	@media (max-width: 620px) {
+		.page-container { width: calc(100% - 36px); }
+		.exam-hero { padding: 62px 0; }
+		.exam-programs, .method { padding: 70px 0; }
+		.exam-grid article { padding: 28px 22px 32px; }
+		.program-symbol { width: min(160px, 65%); }
+		.cta-inner { align-items: flex-start; flex-direction: column; }
+	}
+</style>

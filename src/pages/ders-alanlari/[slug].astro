@@ -1,0 +1,10 @@
+---
+import Header from '../../components/Header.astro';
+import LessonAreaDetail from '../../components/LessonAreaDetail.astro';
+import Footer from '../../components/Footer.astro';
+import Layout from '../../layouts/Layout.astro';
+import { lessonAreaDetails } from '../../data/lessonAreaDetails';
+export function getStaticPaths(){return lessonAreaDetails.map(area=>({params:{slug:area.slug},props:{area}}));}
+const { area }=Astro.props;
+---
+<Layout title={`${area.title} | Deutschzeit`}><Header /><LessonAreaDetail area={area}/><Footer /></Layout>

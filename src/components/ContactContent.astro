@@ -1,0 +1,95 @@
+<main class="contact-page">
+	<section class="contact-hero">
+		<div class="page-container hero-grid">
+			<div><p class="label"><span></span> Deutschzeit iletişim</p><h1>Almanca hedefinizi<br /><em>birlikte planlayalım.</em></h1></div>
+			<p>Programlar, seviyeler ve ders planlaması hakkında merak ettiklerinizi eğitim danışmanlarımıza iletin. Size uygun eğitim yolunu birlikte belirleyelim.</p>
+		</div>
+	</section>
+
+	<section class="contact-main">
+		<div class="page-container contact-grid">
+			<aside>
+				<p class="aside-label">Bize ulaşın</p>
+				<div class="contact-item"><small>Telefon</small><a href="tel:+905000000000">+90 500 000 00 00</a><p>Hafta içi 09.00 - 18.00</p></div>
+				<div class="contact-item"><small>E-posta</small><a href="mailto:info@deutschzeit.com">info@deutschzeit.com</a><p>Mesajlarınıza en kısa sürede dönüş yapıyoruz.</p></div>
+				<div class="contact-item"><small>Online eğitim</small><strong>Türkiye ve dünyanın her yerinden</strong><p>Canlı online Almanca dersleri</p></div>
+				<a class="instagram-link" href="#" aria-label="Deutschzeit Instagram hesabı">Instagram <span>↗</span></a>
+			</aside>
+
+			<div class="form-panel">
+				<div class="form-heading"><p>Eğitim danışmanlığı</p><h2>Size nasıl yardımcı olabiliriz?</h2></div>
+				<form action="mailto:info@deutschzeit.com" method="post" enctype="text/plain">
+					<div class="field-row">
+						<label>Adınız Soyadınız<input type="text" name="ad-soyad" autocomplete="name" required /></label>
+						<label>Telefon Numaranız<input type="tel" name="telefon" autocomplete="tel" required /></label>
+					</div>
+					<div class="field-row">
+						<label>E-posta Adresiniz<input type="email" name="eposta" autocomplete="email" required /></label>
+						<label>İlgilendiğiniz Program<select name="program" required><option value="">Program seçin</option><option>Online Almanca Kursu</option><option>Almanca Özel Ders</option><option>Sınav Hazırlığı</option><option>İş Almancası</option><option>Diğer</option></select></label>
+					</div>
+					<label>Mesajınız<textarea name="mesaj" rows="5" placeholder="Hedefiniz ve mevcut seviyeniz hakkında kısaca bilgi verebilirsiniz."></textarea></label>
+					<div class="form-bottom"><p>Göndererek sizinle iletişime geçilmesini kabul etmiş olursunuz.</p><button type="submit">Mesajı Gönderin <span>→</span></button></div>
+				</form>
+			</div>
+		</div>
+	</section>
+
+	<section class="quick-links"><div class="page-container"><p>Programları inceleyin</p><div><a href="/online-kurs">Online Almanca Kursu <span>→</span></a><a href="/ozel-ders">Almanca Özel Ders <span>→</span></a><a href="/sinav-hazirligi">Sınav Hazırlığı <span>→</span></a></div></div></section>
+</main>
+
+<style>
+	.contact-page { --red: #dc0b20; --yellow: #f2b900; --ink: #1b1b1b; font-family: Inter, Arial, Helvetica, sans-serif; overflow: hidden; }
+	.page-container { width: min(1160px, calc(100% - 64px)); max-width: 100%; margin-inline: auto; }
+	.contact-hero { padding: 84px 0 78px; background: #f7f6f3; }
+	.hero-grid { display: grid; grid-template-columns: 1.2fr .8fr; align-items: end; gap: 85px; }
+	.label, .aside-label, .form-heading > p, .quick-links > div > p { display: flex; margin: 0 0 18px; align-items: center; gap: 11px; color: var(--red); font-size: 10px; font-weight: 800; letter-spacing: .13em; text-transform: uppercase; }
+	.label span { width: 29px; height: 3px; background: var(--yellow); }
+	h1 { margin: 0; color: var(--ink); font-family: Georgia, serif; font-size: clamp(48px, 5.5vw, 70px); font-weight: 500; letter-spacing: -.05em; line-height: .98; }
+	h1 em { color: var(--red); font-weight: 500; }
+	.hero-grid > p { margin: 0 0 7px; padding-left: 25px; border-left: 3px solid var(--yellow); color: #68625b; font-size: 14px; line-height: 1.8; }
+
+	.contact-main { padding: 95px 0 105px; background: #fff; }
+	.contact-grid { display: grid; grid-template-columns: .65fr 1.35fr; gap: 75px; }
+	aside { padding: 34px 32px; background: var(--ink); color: #fff; }
+	.aside-label { color: var(--yellow); }
+	.contact-item { padding: 23px 0; border-top: 1px solid #3d3d3d; }
+	.contact-item small { display: block; margin-bottom: 8px; color: #777; font-size: 8px; font-weight: 800; letter-spacing: .1em; text-transform: uppercase; }
+	.contact-item a, .contact-item strong { color: #fff; font-family: Georgia, serif; font-size: 18px; font-weight: 500; text-decoration: none; }
+	.contact-item p { margin: 7px 0 0; color: #999; font-size: 10px; line-height: 1.5; }
+	.instagram-link { display: inline-flex; margin-top: 24px; align-items: center; gap: 11px; color: #fff; font-size: 9px; font-weight: 800; letter-spacing: .08em; text-decoration: none; text-transform: uppercase; }
+	.instagram-link span { color: var(--yellow); font-size: 15px; }
+
+	.form-panel { padding-top: 3px; }
+	.form-heading { margin-bottom: 33px; }
+	.form-heading h2 { margin: 0; color: var(--ink); font-family: Georgia, serif; font-size: clamp(34px, 3.6vw, 46px); font-weight: 500; letter-spacing: -.035em; }
+	form { display: grid; gap: 23px; }
+	.field-row { display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px; }
+	label { display: grid; gap: 9px; color: #3e3934; font-size: 9px; font-weight: 800; letter-spacing: .07em; text-transform: uppercase; }
+	input, select, textarea { width: 100%; border: 1px solid #d9d5ce; border-radius: 0; background: #fff; color: var(--ink); font: 13px Inter, Arial, sans-serif; outline: none; transition: border-color 160ms ease; }
+	input, select { height: 48px; padding: 0 13px; }
+	textarea { min-height: 125px; padding: 13px; resize: vertical; }
+	input:focus, select:focus, textarea:focus { border-color: var(--red); }
+	textarea::placeholder { color: #aaa49c; }
+	.form-bottom { display: flex; align-items: center; justify-content: space-between; gap: 25px; }
+	.form-bottom p { max-width: 330px; margin: 0; color: #8a847d; font-size: 9px; line-height: 1.5; }
+	button { display: inline-flex; min-height: 47px; align-items: center; gap: 16px; padding: 0 19px; border: 0; background: var(--red); color: #fff; cursor: pointer; font-size: 9px; font-weight: 800; letter-spacing: .07em; text-transform: uppercase; }
+	button span { color: var(--yellow); font-size: 18px; }
+
+	.quick-links { padding: 62px 0; background: var(--yellow); }
+	.quick-links > div > p { color: var(--red); }
+	.quick-links > div > div { display: grid; grid-template-columns: repeat(3, 1fr); border-top: 1px solid rgb(27 27 27 / 25%); border-bottom: 1px solid rgb(27 27 27 / 25%); }
+	.quick-links a { display: flex; min-height: 70px; align-items: center; justify-content: space-between; gap: 15px; padding: 0 22px; color: var(--ink); font-family: Georgia, serif; font-size: 18px; text-decoration: none; }
+	.quick-links a + a { border-left: 1px solid rgb(27 27 27 / 25%); }
+	.quick-links a span { color: var(--red); }
+
+	@media (max-width: 850px) { .hero-grid, .contact-grid { grid-template-columns: 1fr; gap: 45px; } aside { max-width: 550px; } }
+	@media (max-width: 620px) {
+		.page-container { width: calc(100% - 36px); }
+		.contact-hero { padding: 58px 0 62px; }
+		.contact-main { padding: 70px 0; }
+		.field-row { grid-template-columns: 1fr; }
+		.form-bottom { align-items: flex-start; flex-direction: column; }
+		.quick-links > div > div { grid-template-columns: 1fr; }
+		.quick-links a + a { border-top: 1px solid rgb(27 27 27 / 25%); border-left: 0; }
+	}
+</style>

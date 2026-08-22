@@ -1,0 +1,91 @@
+---
+const reasons = [
+	{
+		number: '01',
+		title: 'Uzman Eğitmen Kadrosu',
+		text: 'Alanında deneyimli ve sınav sistemlerine hakim eğitmenlerle hedefinize yönelik eğitim alın.',
+	},
+	{
+		number: '02',
+		title: 'Küçük Sınıflar',
+		text: '4-7 kişilik sınıflarda daha fazla söz hakkı, aktif katılım ve eğitmen ilgisinden yararlanın.',
+	},
+	{
+		number: '03',
+		title: 'Kişisel Gelişim Takibi',
+		text: 'Seviyeniz ve ilerlemeniz düzenli olarak takip edilsin, ihtiyaçlarınıza göre destek alın.',
+	},
+	{
+		number: '04',
+		title: 'Esnek Online Eğitim',
+		text: 'Bulunduğunuz yerden canlı derslere katılın ve Almanca eğitimini hayat temponuza uyarlayın.',
+	},
+];
+---
+
+<section class="why-us" aria-labelledby="why-us-title">
+	<div class="why-container">
+		<div class="why-heading">
+			<p><span></span> Deutschzeit farkı</p>
+			<h2 id="why-us-title">Neden<br /><em>Biz?</em></h2>
+			<p class="why-intro">Almanca öğrenme sürecinizi yalnızca derslerle değil, doğru planlama ve sürekli destekle birlikte yönetiyoruz.</p>
+			<a href="/iletisim">Bizimle Tanışın <span>→</span></a>
+		</div>
+
+		<div class="reason-list">
+			{reasons.map((reason) => (
+				<article>
+					<span>{reason.number}</span>
+					<div>
+						<h3>{reason.title}</h3>
+						<p>{reason.text}</p>
+					</div>
+				</article>
+			))}
+		</div>
+	</div>
+</section>
+
+<style>
+	.why-us {
+		--red: #dc0b20;
+		--yellow: #f2b900;
+		--ink: #1b1b1b;
+		position: relative;
+		padding: 105px 0;
+		background: var(--ink);
+		color: #fff;
+		font-family: Inter, Arial, Helvetica, sans-serif;
+		overflow: hidden;
+	}
+
+	.why-us::before { position: absolute; top: 0; right: 0; width: 32%; height: 5px; background: var(--yellow); content: ''; }
+	.why-us::after { position: absolute; top: -180px; left: -180px; width: 420px; height: 420px; border: 1px solid rgb(242 185 0 / 10%); border-radius: 50%; box-shadow: 0 0 0 65px rgb(220 11 32 / 3%); content: ''; }
+	.why-container { position: relative; z-index: 1; display: grid; width: min(1160px, calc(100% - 64px)); max-width: 100%; margin-inline: auto; grid-template-columns: .72fr 1.28fr; gap: clamp(70px, 10vw, 140px); }
+	.why-heading > p:first-child { display: flex; margin: 0 0 20px; align-items: center; gap: 11px; color: var(--yellow); font-size: 10px; font-weight: 800; letter-spacing: .13em; text-transform: uppercase; }
+	.why-heading > p:first-child span { width: 29px; height: 3px; background: var(--red); }
+	.why-heading h2 { margin: 0; font-family: Georgia, 'Times New Roman', serif; font-size: clamp(54px, 6vw, 78px); font-weight: 500; letter-spacing: -.05em; line-height: .86; }
+	.why-heading h2 em { color: var(--red); font-weight: 500; }
+	.why-intro { max-width: 390px; margin: 31px 0 28px; color: #bcb9b5; font-size: 13px; line-height: 1.75; }
+	.why-heading > a { display: inline-flex; align-items: center; gap: 13px; border-bottom: 1px solid #5c5a57; color: #fff; font-size: 10px; font-weight: 800; letter-spacing: .07em; line-height: 34px; text-decoration: none; text-transform: uppercase; }
+	.why-heading > a span { color: var(--yellow); font-size: 18px; }
+
+	.reason-list { border-top: 1px solid #3d3d3d; }
+	.reason-list article { display: grid; grid-template-columns: 46px 1fr; gap: 23px; padding: 29px 0; border-bottom: 1px solid #3d3d3d; }
+	.reason-list article > span { color: var(--yellow); font-family: Georgia, serif; font-size: 16px; }
+	.reason-list h3 { margin: 0 0 9px; color: #fff; font-family: Georgia, 'Times New Roman', serif; font-size: 23px; font-weight: 500; }
+	.reason-list p { max-width: 570px; margin: 0; color: #aaa7a3; font-size: 12.5px; line-height: 1.7; }
+
+	@media (max-width: 820px) {
+		.why-us { padding: 80px 0; }
+		.why-container { grid-template-columns: 1fr; gap: 55px; }
+		.why-heading h2 br { display: none; }
+	}
+
+	@media (max-width: 620px) {
+		.why-container { width: calc(100% - 36px); }
+		.why-heading h2 { font-size: 57px; }
+		.reason-list article { grid-template-columns: 35px 1fr; gap: 13px; }
+		.reason-list h3 { font-size: 21px; }
+	}
+</style>

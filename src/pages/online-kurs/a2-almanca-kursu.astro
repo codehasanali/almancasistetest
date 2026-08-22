@@ -1,0 +1,68 @@
+---
+import Header from '../../components/Header.astro';
+import LevelCourseDetail from '../../components/LevelCourseDetail.astro';
+import Footer from '../../components/Footer.astro';
+import Layout from '../../layouts/Layout.astro';
+
+const course = {
+	level: 'A2',
+	title: 'Almanca A2 Kursu',
+	headline: 'A2 Almanca Kursu – Bir Üst Seviyeye Geçmeye Hazır mısınız?',
+	lead: 'Almanca bilginizi geliştirin, günlük iletişim becerilerinizi güçlendirin ve daha akıcı konuşmaya başlayın.',
+	paragraphs: [
+		'A1 seviyesini tamamladınız ve artık Almancada daha akıcı konuşmak, yazdıklarınızı daha net ifade etmek ve daha karmaşık cümle yapılarını anlamak mı istiyorsunuz? O zaman sıradaki adım belli: A2 Almanca Kursu.',
+		'A2.1 seviyesinde olan veya kısa bir tekrar isteyen yetişkinler için tasarlanan programda haftada iki gün, her biri 120 dakika süren canlı derslerde özgün materyallerle çalışılır. Derste işlenen konulara paralel alıştırmalar eğitmen tarafından blended e-learning platformunda atanır. 4-6 kişilik küçük sınıf yapısı sayesinde daha çok konuşur, daha hızlı geri bildirim alır ve ilerlemenizi net biçimde görürsünüz.',
+		'Toplam 36 ders saati (40 dakika), 24 saat canlı eğitime karşılık gelir. Program, TELC, Goethe ve ÖSD A2 sınavlarına hazırlanmak için sağlam bir basamak sunar.',
+	],
+	hours: '36 ders saati',
+	weeks: '6 hafta',
+	schedule: 'Haftada 2 gün',
+	groupSize: '4-6 kişi',
+	packageItems: ['Küçük grupta 36 ders saati canlı eğitim', 'Sınırsız online egzersiz platformu', 'Hueber ana ders kitapları (PDF)', 'Grubun ihtiyaçlarına özel eğitmen materyalleri'],
+	sections: [
+		{
+			title: 'Kursun Amacı',
+			items: [
+				'A1 seviyesinde edinilen temel bilgileri pekiştirmek ve ileri taşımak',
+				'Daha uzun ve bağlantılı cümleler kurabilmek',
+				'Neden-sonuç ilişkileriyle düşüncelerinizi ifade edebilmek',
+				'TELC, Goethe ve ÖSD sertifika sınavlarına hazırlığın ikinci aşamasına geçmek',
+			],
+		},
+		{
+			title: 'Materyaller',
+			items: [
+				'Hueber yayınevine ait, sınıfta işlenen ana ders kitapları (PDF)',
+				'Kelime, dil bilgisi, okuma, dinleme, metin üretme ve konuşma egzersizleri içeren sınırsız online platform',
+				'Eğitmenlerimizin grubun ihtiyaçlarına göre hazırladığı özel materyaller',
+			],
+		},
+		{
+			title: 'Nasıl İlerliyoruz?',
+			intro: 'A2.1 seviyesinden A2.2 seviyesine ulaştıran programda aşağıdaki beceriler üzerinde çalışılır:',
+			items: [
+				'Günlük konuşmalara katılmak ve kendinizi daha net ifade etmek',
+				'E-posta yazmak, randevu almak ve şikayet bildirmek gibi gerçek yaşam durumlarında dili kullanmak',
+				'Geçmişte yaşanmış olayları anlatmak',
+				'Kıyaslama yapmak, neden belirtmek ve fikir yürütmek',
+				'Yazılı ve sözlü metinlerde daha fazla ayrıntıyı anlamak',
+			],
+		},
+		{
+			title: 'Kimler Katılabilir?',
+			items: [
+				'A1 seviyesini tamamlamış 20 yaş üzeri yetişkinler',
+				'Almanca bilgisini günlük hayatta kullanma becerisine dönüştürmek isteyenler',
+				'Sertifika sınavlarında A2 düzeyine hazırlananlar',
+				'Almancayı daha akıcı, doğru ve özgüvenli konuşmak isteyenler',
+			],
+		},
+	],
+};
+---
+
+<Layout title="A2 Almanca Kursu | Deutschzeit">
+	<Header />
+	<LevelCourseDetail course={course} />
+	<Footer />
+</Layout>

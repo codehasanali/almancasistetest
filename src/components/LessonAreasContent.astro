@@ -1,0 +1,87 @@
+---
+const areas = [
+	{ number: '01', title: 'Evde Almanca Öğrenmek: Self Study', tag: 'Bireysel', id: 'self-study', href: '/ders-alanlari/evde-almanca-ogrenmek', text: 'Doğru kaynak seçimi, haftalık çalışma planı ve eğitmen yönlendirmesiyle evde kendi temponuzda düzenli Almanca çalışın.' },
+	{ number: '02', title: 'Alman Okulları İçin Almanca Özel Ders', tag: 'Okul', id: 'alman-okullari', href: '/ders-alanlari/alman-okullari-icin-ozel-ders', text: 'Alman Lisesi, İstanbul Erkek Lisesi ve Avusturya Lisesi öğrencilerine hazırlık, edebiyat, metin analizi ve Abitur desteği.' },
+	{ number: '03', title: 'Üniversite Almanca Hazırlık', tag: 'Akademik', id: 'universite-hazirlik', href: '/ders-alanlari/universite-almanca-hazirlik', text: 'Almanya’da üniversite eğitimi, hazırlık sınıfı, akademik yazım ve sunum hedeflerinize yönelik ileri düzey eğitim.' },
+	{ number: '04', title: 'Almanca Konuşma Sınıfı', tag: 'Pratik', id: 'konusma-sinifi', href: '/ders-alanlari/almanca-konusma-sinifi', text: 'Gerçek yaşam konuları, rol çalışmaları ve aktif diyaloglarla konuşma akıcılığınızı ve özgüveninizi geliştirin.' },
+	{ number: '05', title: 'İş Almancası / Deutsch für den Beruf', tag: 'Kariyer', id: 'is-almancasi', href: '/ders-alanlari/is-almancasi', text: 'Toplantı, sunum, e-posta ve iş görüşmelerinde ihtiyaç duyacağınız profesyonel Almanca iletişim becerilerini kazanın.' },
+	{ number: '06', title: 'Şirketler İçin Almanca', tag: 'Kurumsal', id: 'sirketler', href: '/ders-alanlari/sirketler-icin-almanca', text: 'Kurumun sektörü, ekip seviyesi ve iş hedeflerine göre hazırlanan ölçülebilir kurumsal Almanca eğitim programları.' },
+	{ number: '07', title: 'Genel Almanca', tag: 'A1 - C1', href: '/online-kurs', text: 'Günlük yaşamda Almancayı doğru ve akıcı kullanmak için konuşma, dinleme, okuma ve yazma becerilerini birlikte geliştirin.' },
+	{ number: '08', title: 'Birebir Almanca Özel Ders', tag: '1:1', href: '/ozel-ders', text: 'Seviyenize, programınıza ve kişisel hedefinize göre tamamen size özel planlanan derslerle kendi hızınızda ilerleyin.' },
+];
+---
+
+<main class="areas-page">
+	<section class="areas-hero">
+		<div class="page-container hero-layout">
+			<div>
+				<p class="label"><span></span> Deutschzeit eğitim programları</p>
+				<h1>Hedefinize uygun<br /><em>Almanca ders alanları</em></h1>
+			</div>
+			<p class="hero-intro">Günlük iletişimden akademik ve profesyonel Almancaya kadar farklı ihtiyaçlara yönelik programlarımız arasından hedefinize uygun eğitim yolunu seçin.</p>
+		</div>
+	</section>
+
+	<section class="areas-list" aria-label="Almanca ders alanları">
+		<div class="page-container grid">
+			{areas.map((area) => (
+				<article id={area.id}>
+					<div class="area-meta"><span>{area.number}</span><small>{area.tag}</small></div>
+					<h2>{area.title}</h2>
+					<p>{area.text}</p>
+					<a href={area.href}>Detayı İnceleyin <span>→</span></a>
+				</article>
+			))}
+		</div>
+	</section>
+
+	<section class="choice">
+		<div class="page-container choice-grid">
+			<div><p>Doğru programı seçin</p><h2>Hangi ders alanının size uygun olduğuna birlikte karar verelim.</h2></div>
+			<div class="choice-copy"><p>Seviye, hedef ve uygunluk durumunuzu değerlendiren eğitim danışmanlarımız, sizin için en verimli programı belirlemenize yardımcı olur.</p><a href="/iletisim">Eğitim Danışmanına Ulaşın <span>→</span></a></div>
+		</div>
+	</section>
+</main>
+
+<style>
+	.areas-page { --red: #dc0b20; --yellow: #f2b900; --ink: #1b1b1b; font-family: Inter, Arial, Helvetica, sans-serif; overflow: hidden; }
+	.page-container { width: min(1160px, calc(100% - 64px)); max-width: 100%; margin-inline: auto; }
+	.areas-hero { padding: 85px 0 78px; background: #f7f6f3; }
+	.hero-layout { display: grid; grid-template-columns: 1.2fr .8fr; align-items: end; gap: 80px; }
+	.label, .choice-grid > div:first-child > p { display: flex; margin: 0 0 18px; align-items: center; gap: 11px; color: var(--red); font-size: 10px; font-weight: 800; letter-spacing: .13em; text-transform: uppercase; }
+	.label span { width: 29px; height: 3px; background: var(--yellow); }
+	h1 { margin: 0; color: var(--ink); font-family: Georgia, 'Times New Roman', serif; font-size: clamp(47px, 5.4vw, 70px); font-weight: 500; letter-spacing: -.05em; line-height: .98; }
+	h1 em { color: var(--red); font-weight: 500; }
+	.hero-intro { margin: 0 0 7px; padding-left: 25px; border-left: 3px solid var(--yellow); color: #68625b; font-size: 14px; line-height: 1.8; }
+
+	.areas-list { padding: 95px 0 105px; background: #fff; }
+	.grid { display: grid; grid-template-columns: repeat(3, 1fr); border-top: 1px solid #ddd9d2; border-left: 1px solid #ddd9d2; }
+	.grid article { min-width: 0; padding: 31px 29px 35px; border-right: 1px solid #ddd9d2; border-bottom: 1px solid #ddd9d2; }
+	.area-meta { display: flex; align-items: center; justify-content: space-between; }
+	.area-meta > span { color: var(--red); font-family: Georgia, serif; font-size: 17px; }
+	.area-meta small { padding: 6px 9px; background: #f7f2e2; color: #6b645c; font-size: 8px; font-weight: 800; letter-spacing: .08em; text-transform: uppercase; }
+	.grid h2 { min-height: 58px; margin: 31px 0 13px; color: var(--ink); font-family: Georgia, serif; font-size: 23px; font-weight: 500; line-height: 1.2; }
+	.grid article > p { min-height: 89px; margin: 0; color: #716b64; font-size: 12.5px; line-height: 1.75; }
+	.grid a { display: inline-flex; margin-top: 22px; align-items: center; gap: 11px; color: var(--ink); font-size: 9px; font-weight: 800; letter-spacing: .07em; text-decoration: none; text-transform: uppercase; }
+	.grid a span { color: var(--red); font-size: 17px; }
+
+	.choice { padding: 90px 0; background: var(--ink); color: #fff; }
+	.choice-grid { display: grid; grid-template-columns: 1fr .8fr; align-items: center; gap: 100px; }
+	.choice-grid > div:first-child > p { color: var(--yellow); }
+	.choice h2 { margin: 0; font-family: Georgia, serif; font-size: clamp(34px, 4vw, 49px); font-weight: 500; letter-spacing: -.035em; line-height: 1.1; }
+	.choice-copy { padding-left: 28px; border-left: 1px solid #454545; }
+	.choice-copy p { margin: 0 0 24px; color: #aaa7a3; font-size: 13px; line-height: 1.8; }
+	.choice-copy a { display: inline-flex; min-height: 45px; align-items: center; gap: 16px; padding: 0 18px; background: var(--red); color: #fff; font-size: 9px; font-weight: 800; letter-spacing: .07em; text-decoration: none; text-transform: uppercase; }
+	.choice-copy a span { color: var(--yellow); font-size: 18px; }
+
+	@media (max-width: 900px) { .hero-layout, .choice-grid { grid-template-columns: 1fr; gap: 35px; } .grid { grid-template-columns: repeat(2, 1fr); } }
+	@media (max-width: 620px) {
+		.page-container { width: calc(100% - 36px); }
+		.areas-hero { padding: 58px 0 62px; }
+		.areas-list { padding: 68px 0 74px; }
+		.grid { grid-template-columns: 1fr; }
+		.grid h2, .grid article > p { min-height: 0; }
+		.choice { padding: 70px 0; }
+		.choice-copy { padding: 24px 0 0; border-top: 1px solid #454545; border-left: 0; }
+	}
+</style>

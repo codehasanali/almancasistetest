@@ -1,0 +1,29 @@
+<section class="course-options" id="kurs-secenekleri" aria-labelledby="options-title">
+	<div class="options-heading">
+		<p><span></span> Size uygun programı keşfedin</p>
+		<h2 id="options-title">Hedefinize Uygun<br /><em>Online Almanca Kursu</em> Seçeneklerimiz</h2>
+	</div>
+</section>
+
+<style>
+	.course-options {
+		--red: #dc0b20;
+		--yellow: #f2b900;
+		--ink: #1b1b1b;
+		padding: 95px 20px 55px;
+		background: #fff;
+		font-family: Inter, Arial, Helvetica, sans-serif;
+		overflow: hidden;
+	}
+
+	.options-heading { max-width: 850px; margin-inline: auto; text-align: center; }
+	.options-heading > p { display: flex; margin: 0 0 17px; align-items: center; justify-content: center; gap: 11px; color: var(--red); font-size: 10px; font-weight: 800; letter-spacing: .13em; text-transform: uppercase; }
+	.options-heading > p span { width: 29px; height: 3px; background: var(--yellow); }
+	.options-heading h2 { margin: 0; color: var(--ink); font-family: Georgia, 'Times New Roman', serif; font-size: clamp(38px, 4.1vw, 56px); font-weight: 500; letter-spacing: -.04em; line-height: 1.08; }
+	.options-heading h2 em { color: var(--red); font-weight: 500; }
+
+	@media (max-width: 620px) {
+		.course-options { padding: 66px 18px 40px; }
+		.options-heading h2 { font-size: 38px; }
+	}
+</style>

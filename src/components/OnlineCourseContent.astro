@@ -1,0 +1,189 @@
+---
+const features = [
+	{ number: '01', title: 'Canlı ve Etkileşimli Dersler', text: 'Eğitmeniniz ve sınıf arkadaşlarınızla gerçek zamanlı iletişim kurarak derse aktif katılın.' },
+	{ number: '02', title: '4-7 Kişilik Küçük Gruplar', text: 'Kalabalık sınıfların aksine daha fazla konuşma fırsatı ve bireysel eğitmen ilgisi kazanın.' },
+	{ number: '03', title: 'Dört Temel Dil Becerisi', text: 'Konuşma, dinleme, okuma ve yazma becerilerini dengeli bir programla birlikte geliştirin.' },
+	{ number: '04', title: 'Düzenli Gelişim Takibi', text: 'Ödevler, uygulamalar ve eğitmen geri bildirimleriyle ilerlemenizi düzenli olarak takip edin.' },
+];
+
+const levels = [
+	{ code: 'A1', name: 'Başlangıç' },
+	{ code: 'A2', name: 'Temel' },
+	{ code: 'B1', name: 'Orta' },
+	{ code: 'B2', name: 'İleri' },
+	{ code: 'C1', name: 'Akademik' },
+];
+---
+
+<main class="online-page">
+	<section class="online-hero">
+		<div class="page-container hero-grid">
+			<div class="hero-copy">
+				<p class="eyebrow"><span></span> Canlı online sınıflar</p>
+				<h1>Bulunduğunuz her yerden<br /><em>Online Almanca Kursu</em></h1>
+				<p>Deutschzeit online Almanca kurslarıyla uzman eğitmenler eşliğinde, seviyenize uygun küçük bir grupta ve canlı derslerle Almanca öğrenin. Etkileşimli sınıf deneyimini evinizin rahatlığıyla birleştirin.</p>
+				<div class="hero-actions">
+					<a href="/iletisim">Kurs Hakkında Bilgi Alın <span>→</span></a>
+					<div><strong>4-7</strong><small>Kişilik sınıflar</small></div>
+					<div><strong>A1-C1</strong><small>Tüm seviyeler</small></div>
+				</div>
+			</div>
+			<div class="hero-visual">
+				<div class="yellow-panel" aria-hidden="true"></div>
+				<img src="/german-course.jpg" alt="Canlı online Almanca kursuna katılan öğrenciler" width="1400" height="933" fetchpriority="high" />
+				<p><span>●</span> Canlı ders ortamı</p>
+			</div>
+		</div>
+	</section>
+
+	<section class="course-summary" aria-label="Online kurs özellikleri özeti">
+		<div class="page-container summary-grid">
+			<p><strong>Canlı</strong><span>Online dersler</span></p>
+			<p><strong>Esnek</strong><span>Ders programı</span></p>
+			<p><strong>Etkileşimli</strong><span>Konuşma pratiği</span></p>
+			<p><strong>Takipli</strong><span>Gelişim sistemi</span></p>
+		</div>
+	</section>
+
+	<slot />
+
+	<section class="features" aria-labelledby="online-features-title">
+		<div class="page-container">
+			<div class="section-heading">
+				<p>Kurs özellikleri</p>
+				<h2 id="online-features-title">Online eğitimin esnekliği, gerçek sınıfın etkileşimi.</h2>
+			</div>
+			<div class="feature-list">
+				{features.map((feature) => (
+					<article><span>{feature.number}</span><div><h3>{feature.title}</h3><p>{feature.text}</p></div></article>
+				))}
+			</div>
+		</div>
+	</section>
+
+	<section class="levels" aria-labelledby="levels-title">
+		<div class="page-container levels-grid">
+			<div class="levels-copy">
+				<p>Seviye programları</p>
+				<h2 id="levels-title">Doğru seviyeden başlayın, adım adım ilerleyin.</h2>
+				<p>Ücretsiz seviye tespitinin ardından dil bilginize ve hedefinize en uygun sınıfa yerleştirilirsiniz. Her seviye Avrupa Ortak Dil Referans Çerçevesi ile uyumlu olarak planlanır.</p>
+				<a href="/seviye-testi">Seviyenizi Belirleyin <span>→</span></a>
+			</div>
+			<div class="level-list">
+				{levels.map((level) => <div><strong>{level.code}</strong><span>{level.name}</span></div>)}
+			</div>
+		</div>
+	</section>
+
+	<section class="course-process" aria-labelledby="course-process-title">
+		<div class="page-container">
+			<div class="process-heading"><p>Kursa nasıl başlarsınız?</p><h2 id="course-process-title">Üç adımda sınıfınız hazır</h2></div>
+			<div class="process-grid">
+				<article><span>01</span><h3>Seviyenizi Belirleyin</h3><p>Kısa seviye tespiti ve danışman görüşmesiyle mevcut Almanca bilginizi belirleyelim.</p></article>
+				<article><span>02</span><h3>Programınızı Seçin</h3><p>Seviyenize ve uygun olduğunuz günlere göre doğru sınıf alternatifini birlikte seçelim.</p></article>
+				<article><span>03</span><h3>Canlı Derslere Katılın</h3><p>Online sınıfınıza bağlanın, eğitmeniniz ve grubunuzla Almanca öğrenmeye başlayın.</p></article>
+			</div>
+		</div>
+	</section>
+
+	<section class="online-cta">
+		<div class="page-container cta-inner">
+			<div><p>Yeni dönem kayıtları</p><h2>Size uygun online Almanca sınıfını birlikte bulalım.</h2></div>
+			<a href="/iletisim">Kayıt Bilgisi Alın <span>→</span></a>
+		</div>
+	</section>
+</main>
+
+<style>
+	.online-page { --red: #dc0b20; --red-dark: #a90516; --yellow: #f2b900; --ink: #1b1b1b; font-family: Inter, Arial, Helvetica, sans-serif; overflow: hidden; }
+	.page-container { width: min(1160px, calc(100% - 64px)); max-width: 100%; margin-inline: auto; }
+	.online-hero { padding: 74px 0 86px; background: #f7f6f3; }
+	.hero-grid { display: grid; grid-template-columns: 1.02fr .98fr; align-items: start; gap: clamp(55px, 8vw, 105px); }
+	.hero-copy { padding-top: 29px; }
+	.eyebrow, .section-heading > p, .levels-copy > p:first-child, .process-heading > p, .cta-inner p { display: flex; margin: 0 0 18px; align-items: center; gap: 11px; color: var(--red); font-size: 10px; font-weight: 800; letter-spacing: .13em; text-transform: uppercase; }
+	.eyebrow span { width: 29px; height: 3px; background: var(--yellow); }
+	.hero-copy h1 { margin: 0; color: var(--ink); font-family: Georgia, 'Times New Roman', serif; font-size: clamp(46px, 5.2vw, 68px); font-weight: 500; letter-spacing: -.05em; line-height: .99; }
+	.hero-copy h1 em { color: var(--red); font-weight: 500; }
+	.hero-copy > p:not(.eyebrow) { max-width: 610px; margin: 28px 0 0; color: #68625b; font-size: 15px; line-height: 1.8; }
+	.hero-actions { display: flex; margin-top: 34px; align-items: center; gap: 24px; }
+	.hero-actions > a, .levels-copy > a, .online-cta a { display: inline-flex; min-height: 49px; align-items: center; gap: 16px; padding: 0 20px; background: var(--red); color: #fff; font-size: 10px; font-weight: 800; letter-spacing: .055em; text-decoration: none; text-transform: uppercase; }
+	.hero-actions > a span, .levels-copy > a span, .online-cta a span { color: var(--yellow); font-size: 18px; }
+	.hero-actions > div { display: flex; flex-direction: column; gap: 3px; }
+	.hero-actions strong { color: var(--ink); font-family: Georgia, serif; font-size: 17px; }
+	.hero-actions small { color: #857f78; font-size: 9px; }
+	.hero-visual { position: relative; padding: 18px 22px 36px 0; }
+	.yellow-panel { position: absolute; top: 0; right: 0; width: 78%; height: calc(100% - 36px); background: var(--yellow); }
+	.hero-visual img { position: relative; z-index: 1; display: block; width: 100%; aspect-ratio: 4 / 3; object-fit: cover; }
+	.hero-visual > p { position: absolute; z-index: 2; right: 0; bottom: 0; margin: 0; padding: 16px 20px; background: var(--ink); color: #fff; font-size: 9px; font-weight: 800; letter-spacing: .08em; text-transform: uppercase; }
+	.hero-visual > p span { margin-right: 7px; color: #31b75b; }
+
+	.course-summary { background: var(--red); color: #fff; }
+	.summary-grid { display: grid; grid-template-columns: repeat(4, 1fr); }
+	.summary-grid p { display: flex; min-height: 88px; margin: 0; align-items: center; justify-content: center; flex-direction: column; gap: 5px; }
+	.summary-grid p + p { border-left: 1px solid rgb(255 255 255 / 20%); }
+	.summary-grid strong { font-family: Georgia, serif; font-size: 20px; font-weight: 500; }
+	.summary-grid span { color: #f2c3c8; font-size: 9px; letter-spacing: .07em; text-transform: uppercase; }
+
+	.features { padding: 100px 0; background: #fff; }
+	.section-heading { display: grid; grid-template-columns: .5fr 1.2fr; align-items: start; gap: 40px; margin-bottom: 52px; }
+	.section-heading h2, .levels-copy h2, .process-heading h2, .cta-inner h2 { margin: 0; color: var(--ink); font-family: Georgia, 'Times New Roman', serif; font-size: clamp(35px, 4vw, 50px); font-weight: 500; letter-spacing: -.035em; line-height: 1.1; }
+	.feature-list { display: grid; grid-template-columns: repeat(2, 1fr); border-top: 1px solid #ddd9d2; }
+	.feature-list article { display: grid; grid-template-columns: 47px 1fr; gap: 20px; padding: 32px 30px 34px 0; border-bottom: 1px solid #ddd9d2; }
+	.feature-list article:nth-child(even) { padding-left: 30px; border-left: 1px solid #ddd9d2; }
+	.feature-list article > span { color: var(--red); font-family: Georgia, serif; font-size: 17px; }
+	.feature-list h3 { margin: 0 0 10px; color: var(--ink); font-family: Georgia, serif; font-size: 21px; font-weight: 500; }
+	.feature-list p { margin: 0; color: #746e67; font-size: 12.5px; line-height: 1.75; }
+
+	.levels { padding: 98px 0; background: var(--ink); color: #fff; }
+	.levels-grid { display: grid; grid-template-columns: .92fr 1.08fr; align-items: center; gap: clamp(65px, 9vw, 125px); }
+	.levels-copy > p:first-child { color: var(--yellow); }
+	.levels-copy h2 { color: #fff; }
+	.levels-copy > p:not(:first-child) { margin: 25px 0 28px; color: #aaa7a3; font-size: 13px; line-height: 1.8; }
+	.level-list { display: grid; grid-template-columns: repeat(5, 1fr); border-top: 1px solid #414141; border-bottom: 1px solid #414141; }
+	.level-list div { display: flex; min-height: 150px; align-items: center; justify-content: center; flex-direction: column; gap: 12px; }
+	.level-list div + div { border-left: 1px solid #414141; }
+	.level-list strong { color: var(--yellow); font-family: Georgia, serif; font-size: 29px; font-weight: 500; }
+	.level-list span { color: #aaa; font-size: 9px; text-transform: uppercase; }
+
+	.course-process { padding: 100px 0; background: #f5f3ef; }
+	.process-heading { max-width: 700px; margin-bottom: 50px; }
+	.process-grid { display: grid; grid-template-columns: repeat(3, 1fr); border-top: 1px solid #d9d5ce; border-bottom: 1px solid #d9d5ce; }
+	.process-grid article { padding: 33px 30px 37px; }
+	.process-grid article + article { border-left: 1px solid #d9d5ce; }
+	.process-grid span { color: var(--red); font-family: Georgia, serif; font-size: 17px; }
+	.process-grid h3 { margin: 24px 0 12px; color: var(--ink); font-family: Georgia, serif; font-size: 22px; font-weight: 500; }
+	.process-grid p { margin: 0; color: #746e67; font-size: 12.5px; line-height: 1.75; }
+
+	.online-cta { padding: 66px 0; background: var(--yellow); }
+	.cta-inner { display: flex; align-items: center; justify-content: space-between; gap: 45px; }
+	.cta-inner h2 { max-width: 760px; font-size: clamp(29px, 3.2vw, 42px); }
+	.cta-inner a { white-space: nowrap; }
+
+	@media (max-width: 900px) {
+		.hero-grid, .levels-grid { grid-template-columns: 1fr; }
+		.hero-copy { padding-top: 0; }
+		.hero-visual { width: min(600px, 100%); }
+		.section-heading { grid-template-columns: 1fr; gap: 8px; }
+	}
+
+	@media (max-width: 620px) {
+		.page-container { width: calc(100% - 36px); }
+		.online-hero { padding: 56px 0 64px; }
+		.hero-grid { gap: 45px; }
+		.hero-actions { align-items: flex-start; flex-wrap: wrap; }
+		.hero-actions > a { width: 100%; justify-content: center; }
+		.summary-grid { grid-template-columns: repeat(2, 1fr); }
+		.summary-grid p:nth-child(3) { border-top: 1px solid rgb(255 255 255 / 20%); border-left: 0; }
+		.summary-grid p:nth-child(4) { border-top: 1px solid rgb(255 255 255 / 20%); }
+		.features, .levels, .course-process { padding: 70px 0; }
+		.feature-list { grid-template-columns: 1fr; }
+		.feature-list article:nth-child(even) { padding-left: 0; border-left: 0; }
+		.level-list { grid-template-columns: repeat(3, 1fr); }
+		.level-list div { min-height: 110px; }
+		.level-list div:nth-child(n + 4) { border-top: 1px solid #414141; }
+		.level-list div:nth-child(4) { border-left: 0; }
+		.process-grid { grid-template-columns: 1fr; }
+		.process-grid article + article { border-top: 1px solid #d9d5ce; border-left: 0; }
+		.cta-inner { align-items: flex-start; flex-direction: column; }
+	}
+</style>

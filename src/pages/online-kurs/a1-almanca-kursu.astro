@@ -1,0 +1,59 @@
+---
+import Header from '../../components/Header.astro';
+import LevelCourseDetail from '../../components/LevelCourseDetail.astro';
+import Footer from '../../components/Footer.astro';
+import Layout from '../../layouts/Layout.astro';
+
+const course = {
+	level: 'A1',
+	title: 'Almanca A1 Kursu',
+	headline: 'A1 Almanca Kursu – Başlangıç Seviyesi için Online, Canlı ve Etkileşimli Eğitim',
+	lead: 'Almanca öğrenmeye Deutschzeit ile başlayın ve sonraki tüm seviyeler için sağlam bir temel edinin.',
+	paragraphs: [
+		'Almanca öğrenmeye nereden başlayacağınızı bilemiyor musunuz? Almancayı etkili ve sistemli bir şekilde öğrenmek istiyorsanız A1 Almanca Kursu tam size göre. Başlangıç seviyesinden itibaren dili temelden kavrayarak günlük hayatta ve iş yaşamında kendinizi ifade edebilmeniz için sağlam bir zemin sunar.',
+		'Bu kurs, hiç Almanca bilmeyen veya A1.1 konularını tekrar ederek A1.2 seviyesine geçmek isteyen yetişkinler için tasarlanmıştır. Canlı derslerde işlenen konulara paralel alıştırmalar, eğitmeniniz tarafından blended e-learning platformunda atanır. 4-6 kişilik küçük sınıf sayesinde daha çok konuşma, daha hızlı geri bildirim ve görünür ilerleme hedeflenir.',
+	],
+	hours: '36 ders saati',
+	weeks: '6 hafta',
+	schedule: 'Haftada 2 gün',
+	groupSize: '4-6 kişi',
+	packageItems: ['Küçük grupta 36 ders saati canlı eğitim', 'Sınırsız egzersiz platformu', 'Eğitmen tarafından atanan dijital alıştırmalar', 'Ders materyalleri ve gelişim takibi'],
+	price: '17.500,00 TL',
+	sections: [
+		{
+			title: 'Kursun Amacı',
+			items: [
+				'Almancanın temel cümle yapılarını ve günlük kelimelerini öğrenmek',
+				'Kendinizi tanıtmak ve basit günlük ihtiyaçlarınızı ifade edebilmek',
+				'Temel konuşmaları anlayıp kısa diyaloglara katılabilmek',
+				'A2 seviyesine ve sertifika sınavlarına güçlü bir temel oluşturmak',
+			],
+		},
+		{
+			title: 'Nasıl İlerliyoruz?',
+			intro: 'Haftada iki kez 120 dakika süren canlı dersler, her oturumda 3×40 dakikalık çalışma düzeniyle yürütülür.',
+			items: [
+				'Selamlaşma, tanışma ve kişisel bilgiler hakkında konuşma',
+				'Sayılar, saatler, tarihler ve günlük programlar',
+				'Alışveriş, ulaşım, ev ve iş hayatına yönelik temel iletişim',
+				'Basit e-posta ve kısa metin yazma çalışmaları',
+			],
+		},
+		{
+			title: 'Kimler Katılabilir?',
+			items: [
+				'Hiç Almanca bilmeyen yetişkinler',
+				'A1.1 konularını tekrar etmek isteyenler',
+				'Almanya’da eğitim, çalışma veya yaşam hedefleyenler',
+				'TELC, Goethe veya ÖSD A1 sınavı için temel oluşturmak isteyenler',
+			],
+		},
+	],
+};
+---
+
+<Layout title="A1 Almanca Kursu | Deutschzeit">
+	<Header />
+	<LevelCourseDetail course={course} />
+	<Footer />
+</Layout>

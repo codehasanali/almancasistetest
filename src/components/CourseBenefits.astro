@@ -1,0 +1,78 @@
+---
+const benefits = [
+	{
+		number: '01',
+		title: 'Seviyeye Özel Eğitim Programları',
+		text: 'A1 başlangıç seviyesinden C1 ileri seviyeye kadar geniş bir yelpazede Online Almanca Kursu programlarımız bulunmaktadır. Her öğrencinin bireysel ihtiyaçlarını ve hedeflerini göz önünde bulundurarak tasarlanmış müfredatımız sayesinde, hangi seviyede olursanız olun eğitiminize başlayabilirsiniz. Seviye tespit sınavlarımızla mevcut Almanca bilginiz belirlenerek, size en uygun sınıfa yerleştirilirsiniz.',
+	},
+	{
+		number: '02',
+		title: 'Küçük Grup Avantajı',
+		text: 'Deutschzeit’ın 4-7 kişilik küçük sınıf sistemi, Almanca Özel Ders kalitesinde bir öğrenme deneyimi yaşamanızı sağlar. Bu sistem sayesinde her öğrenci eğitmenlerden maksimum düzeyde ilgi görür ve aktif katılım için bol fırsat bulur. Aynı seviyedeki diğer öğrencilerle birlikte ilerlemek, motivasyonunuzu artırır ve sosyal öğrenme ortamı yaratır.',
+	},
+	{
+		number: '03',
+		title: 'Modern Öğretim Yöntemleri',
+		text: 'Eğitim programlarımız, deneyimli ve sertifikalı eğitmenler eşliğinde tamamen etkileşimli şekilde yürütülür. Online Almanca Kursu derslerimiz canlı sanal sınıf ortamında gerçekleşir ve öğrencilerimiz gerçek zamanlı olarak eğitmenlerle ve sınıf arkadaşlarıyla iletişim kurabilir. Bu yöntem, geleneksel sınıf ortamının avantajlarını dijital platformların esnekliğiyle birleştirir.',
+	},
+	{
+		number: '04',
+		title: 'Hedefinize Uygun Tempo',
+		text: 'Almanca Özel Ders kalitesindeki grup eğitimlerimizde, öğrenme hızınız ve hedefleriniz dikkate alınır. İster iş hayatı için Almanca öğrenmek isteyin, ister akademik amaçlarla, ister sadece kişisel gelişim için; size özel tempoda ilerleyebilirsiniz. Haftalık ders saatleri ve program süresi konusunda esneklik sunarak, yoğun iş programınıza uyum sağlamanızı kolaylaştırıyoruz.',
+	},
+];
+---
+
+<section class="benefits" aria-label="Online Almanca kursu avantajları">
+	<div class="benefits-container">
+		{benefits.map((benefit) => (
+			<article class="benefit-row">
+				<div class="benefit-title">
+					<span>{benefit.number}</span>
+					<h2>{benefit.title}</h2>
+				</div>
+				<p>{benefit.text}</p>
+			</article>
+		))}
+	</div>
+</section>
+
+<style>
+	.benefits {
+		--red: #dc0b20;
+		--yellow: #f2b900;
+		--ink: #1b1b1b;
+		padding: 0 0 105px;
+		background: #fff;
+		font-family: Inter, Arial, Helvetica, sans-serif;
+	}
+
+	.benefits-container {
+		width: min(1160px, calc(100% - 64px));
+		max-width: 100%;
+		margin-inline: auto;
+		border-top: 1px solid #ddd9d2;
+	}
+
+	.benefit-row {
+		display: grid;
+		grid-template-columns: minmax(280px, .75fr) minmax(0, 1.25fr);
+		gap: clamp(45px, 7vw, 100px);
+		padding: 50px 0;
+		border-bottom: 1px solid #ddd9d2;
+	}
+
+	.benefit-title { display: grid; grid-template-columns: 38px 1fr; align-items: start; gap: 17px; }
+	.benefit-title > span { display: grid; width: 36px; height: 27px; place-items: center; border-top: 3px solid var(--yellow); color: var(--red); font-family: Georgia, serif; font-size: 14px; }
+	.benefit-title h2 { margin: 0; color: var(--ink); font-family: Georgia, 'Times New Roman', serif; font-size: clamp(25px, 2.4vw, 33px); font-weight: 500; letter-spacing: -.025em; line-height: 1.2; }
+	.benefit-row > p { margin: 0; color: #68625b; font-size: 14px; line-height: 1.85; }
+
+	@media (max-width: 760px) {
+		.benefits { padding: 0 0 75px; }
+		.benefits-container { width: calc(100% - 36px); }
+		.benefit-row { grid-template-columns: 1fr; gap: 22px; padding: 38px 0; }
+		.benefit-title { grid-template-columns: 34px 1fr; gap: 13px; }
+		.benefit-title h2 { font-size: 26px; }
+		.benefit-row > p { font-size: 13px; line-height: 1.8; }
+	}
+</style>

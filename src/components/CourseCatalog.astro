@@ -1,0 +1,117 @@
+---
+const levelCourses = [
+	{ level: 'A1', title: 'Almanca A1 Kursu', subtitle: 'Sağlam bir temel edinin.', description: 'Hiç Almanca bilmeyenler için canlı ve etkileşimli başlangıç programı.', hours: '36 Saat', weeks: '6 Hafta', href: '/online-kurs/a1-almanca-kursu' },
+	{ level: 'A2', title: 'Almanca A2 Kursu', subtitle: 'Konuşma yetinizi artırın.', description: 'A1’i tamamlayanlar için günlük iletişim ve sertifika odaklı program.', hours: '36 Saat', weeks: '6 Hafta', href: '/online-kurs/a2-almanca-kursu' },
+	{ level: 'B1', title: 'Almanca B1 Kursu', subtitle: 'Bağımsız iletişime geçin.', description: 'Günlük, sosyal ve mesleki iletişim becerilerinizi ileri taşıyın.', hours: '36 Saat', weeks: '6 Hafta', href: '/online-kurs/b1-almanca-kursu' },
+	{ level: 'B2', title: 'Almanca B2 Kursu', subtitle: 'Akıcı ve profesyonel Almanca.', description: 'Karmaşık konular, akademik metinler ve ileri iletişim programı.', hours: '36 Saat', weeks: '6 Hafta', href: '/online-kurs/b2-almanca-kursu' },
+	{ level: 'C1', title: 'Almanca C1 Kursu', subtitle: 'İleri dil hakimiyeti kazanın.', description: 'Akademik ve profesyonel bağlamlarda etkili Almanca kullanın.', hours: '36 Saat', weeks: '6 Hafta', href: '/online-kurs/c1-almanca-kursu' },
+];
+
+const examCourses = [
+	{ level: 'DSD 1', title: 'DSD 1 Hazırlık', subtitle: 'B1 düzeyinde sınav hazırlığı.', description: 'Yazılı ve sözlü bölümlere sistemli, sınav odaklı eğitim.', href: '/sinav-hazirligi/dsd-1-hazirlik' },
+	{ level: 'DSD 2', title: 'DSD 2 Hazırlık', subtitle: 'Üniversite hedefinize hazırlanın.', description: 'B2-C1 akademik Almanca ve DSD 2 formatına yoğun hazırlık.', href: '/sinav-hazirligi/dsd-2-hazirlik' },
+	{ level: 'TestDaF', title: 'TestDaF Hazırlık', subtitle: 'Akademik Almancanızı geliştirin.', description: 'TestDaF’ın dört bölümüne deneme ve geri bildirimlerle hazırlanın.', href: '/sinav-hazirligi/testdaf-hazirlik' },
+	{ level: 'Abitur', title: 'Abitur Hazırlık', subtitle: 'Analiz ve metin üretme.', description: 'Edebiyat, yorumlama ve yazılı sınav becerilerinizi güçlendirin.', href: '/sinav-hazirligi/abitur-hazirlik' },
+];
+---
+
+<section class="catalog" aria-labelledby="catalog-title">
+	<div class="catalog-container">
+		<header class="catalog-heading">
+			<p><span></span> Deutschzeit eğitim programları</p>
+			<h2 id="catalog-title">Online Almanca kurs<br /><em>programlarını inceleyin.</em></h2>
+			<p class="heading-copy">Seviyenize ve hedefinize uygun programı seçin; canlı online derslerle Almancanızı adım adım geliştirin.</p>
+		</header>
+
+		<div class="course-group">
+			<div class="group-heading"><h3>Seviye Kursları</h3><span>A1’den C1’e</span></div>
+			<div class="course-grid level-grid">
+				{levelCourses.map((course) => (
+					<a class="course-card" href={course.href}>
+						<div class="card-top"><span class="level-mark">{course.level}</span><small>Online · Canlı</small></div>
+						<h4>{course.title}</h4>
+						<strong>{course.subtitle}</strong>
+						<p>{course.description}</p>
+						<div class="course-meta"><span><b>{course.hours}</b>Canlı eğitim</span><span><b>{course.weeks}</b>Program</span></div>
+						<div class="card-link"><span>Programı İncele</span><b>→</b></div>
+					</a>
+				))}
+			</div>
+		</div>
+
+		<div class="course-group exam-group">
+			<div class="group-heading"><h3>Sınav Hazırlık Programları</h3><span>Sertifika & Akademik</span></div>
+			<div class="course-grid exam-grid">
+				{examCourses.map((course) => (
+					<a class="course-card exam-card" href={course.href}>
+						<div class="card-top"><span class="exam-mark">{course.level}</span><small>Hedefe özel</small></div>
+						<h4>{course.title}</h4>
+						<strong>{course.subtitle}</strong>
+						<p>{course.description}</p>
+						<div class="exam-meta"><span>Program süresi ve ders planı hedefinize göre belirlenir.</span></div>
+						<div class="card-link"><span>Programı İncele</span><b>→</b></div>
+					</a>
+				))}
+			</div>
+		</div>
+	</div>
+</section>
+
+<style>
+	.catalog { --red: #dc0b20; --red-dark: #a90516; --yellow: #f2b900; --ink: #1b1b1b; position: relative; padding: 108px 0 115px; background: #f5f3ef; font-family: Inter, Arial, Helvetica, sans-serif; overflow: hidden; }
+	.catalog::before { position: absolute; top: 0; right: 0; width: 31%; height: 6px; background: var(--yellow); content: ''; }
+	.catalog-container { width: min(1240px, calc(100% - 64px)); max-width: 100%; margin-inline: auto; }
+	.catalog-heading { max-width: 850px; margin: 0 auto 68px; text-align: center; }
+	.catalog-heading > p:first-child { display: flex; margin: 0 0 17px; align-items: center; justify-content: center; gap: 11px; color: var(--red); font-size: 10px; font-weight: 800; letter-spacing: .13em; text-transform: uppercase; }
+	.catalog-heading > p:first-child span { width: 29px; height: 3px; background: var(--yellow); }
+	.catalog-heading h2 { margin: 0; color: var(--ink); font-family: Georgia, 'Times New Roman', serif; font-size: clamp(40px, 4.7vw, 59px); font-weight: 500; letter-spacing: -.045em; line-height: 1.03; }
+	.catalog-heading h2 em { color: var(--red); font-weight: 500; }
+	.heading-copy { max-width: 650px; margin: 24px auto 0; color: #746e67; font-size: 13px; line-height: 1.75; }
+
+	.course-group + .course-group { margin-top: 72px; }
+	.group-heading { display: flex; margin-bottom: 22px; align-items: center; justify-content: space-between; gap: 25px; padding-bottom: 15px; border-bottom: 1px solid #d8d4cc; }
+	.group-heading h3 { margin: 0; color: var(--ink); font-family: Georgia, serif; font-size: 25px; font-weight: 500; }
+	.group-heading > span { color: #8b857e; font-size: 8px; font-weight: 800; letter-spacing: .1em; text-transform: uppercase; }
+	.course-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 17px; }
+	.course-card { position: relative; display: flex; min-width: 0; min-height: 390px; padding: 26px 27px 27px; flex-direction: column; border: 1px solid #ddd8d0; background: #fff; color: inherit; text-decoration: none; transition: transform 180ms ease, box-shadow 180ms ease, border-color 180ms ease; }
+	.course-card::before { position: absolute; top: -1px; right: -1px; left: -1px; height: 4px; background: linear-gradient(90deg, var(--red) 0 72%, var(--yellow) 72%); content: ''; transform: scaleX(0); transform-origin: left; transition: transform 220ms ease; }
+	.course-card:hover { z-index: 1; border-color: transparent; box-shadow: 0 20px 42px rgb(37 22 17 / 13%); transform: translateY(-5px); }
+	.course-card:hover::before { transform: scaleX(1); }
+	.card-top { display: flex; min-height: 67px; align-items: flex-start; justify-content: space-between; gap: 15px; }
+	.level-mark { color: var(--red); font-family: Georgia, serif; font-size: 52px; letter-spacing: -.06em; line-height: .9; }
+	.card-top small { padding: 6px 8px; background: #f6f2e7; color: #817a71; font-size: 7px; font-weight: 800; letter-spacing: .08em; text-transform: uppercase; }
+	.course-card h4 { margin: 19px 0 8px; color: var(--ink); font-family: Georgia, serif; font-size: 23px; font-weight: 500; line-height: 1.2; }
+	.course-card > strong { display: block; min-height: 36px; color: var(--red); font-size: 10.5px; line-height: 1.55; }
+	.course-card > p { min-height: 62px; margin: 14px 0 21px; color: #746e67; font-size: 11.5px; line-height: 1.7; }
+	.course-meta { display: flex; gap: 28px; margin-top: auto; padding: 15px 0; border-top: 1px solid #e5e1da; border-bottom: 1px solid #e5e1da; }
+	.course-meta > span { display: flex; flex-direction: column; gap: 4px; color: #989189; font-size: 7px; font-weight: 700; letter-spacing: .06em; text-transform: uppercase; }
+	.course-meta b { color: var(--ink); font-family: Georgia, serif; font-size: 15px; font-weight: 500; letter-spacing: 0; text-transform: none; }
+	.card-link { display: flex; margin-top: 20px; align-items: center; justify-content: space-between; color: var(--ink); font-size: 8px; font-weight: 800; letter-spacing: .08em; text-transform: uppercase; }
+	.card-link b { display: grid; width: 30px; height: 30px; place-items: center; border-radius: 50%; background: var(--red); color: #fff; font-size: 15px; transition: transform 160ms ease; }
+	.course-card:hover .card-link b { transform: translateX(3px); }
+
+	.exam-grid { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+	.exam-card { min-height: 360px; background: var(--ink); border-color: #323232; }
+	.exam-card::before { transform: scaleX(1); background: var(--yellow); }
+	.exam-mark { max-width: 175px; color: var(--yellow); font-family: Georgia, serif; font-size: clamp(25px, 2.5vw, 37px); line-height: 1; overflow-wrap: anywhere; }
+	.exam-card .card-top small { background: #313131; color: #999; }
+	.exam-card h4 { color: #fff; }
+	.exam-card > strong { color: var(--yellow); }
+	.exam-card > p { color: #aaa7a3; }
+	.exam-meta { min-height: 54px; margin-top: auto; padding: 14px 0; border-top: 1px solid #3c3c3c; border-bottom: 1px solid #3c3c3c; color: #86827e; font-size: 8.5px; line-height: 1.55; }
+	.exam-card .card-link { color: #fff; }
+	.exam-card .card-link b { background: var(--yellow); color: var(--ink); }
+
+	@media (max-width: 1050px) { .course-grid, .exam-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+	@media (max-width: 620px) {
+		.catalog { padding: 74px 0 80px; }
+		.catalog-container { width: calc(100% - 36px); }
+		.catalog-heading { margin-bottom: 48px; }
+		.catalog-heading h2 { font-size: 40px; }
+		.course-grid, .exam-grid { grid-template-columns: 1fr; }
+		.course-card, .exam-card { min-height: 0; padding: 24px 22px 25px; }
+		.course-card > strong, .course-card > p { min-height: 0; }
+		.course-group + .course-group { margin-top: 55px; }
+		.group-heading { align-items: flex-start; flex-direction: column; gap: 7px; }
+	}
+</style>

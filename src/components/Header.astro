@@ -1,0 +1,255 @@
+---
+const currentPath = Astro.url.pathname.replace(/\/$/, '') || '/';
+const aboutPaths = ['/hakkimizda', '/online-almanca-ogrenmek', '/almanca-sertifika-sinavlari', '/sss'];
+const navItems = [
+	{ label: 'Anasayfa', href: '/', active: currentPath === '/' },
+	{
+		label: 'Hakkımızda', href: '/hakkimizda', active: aboutPaths.includes(currentPath),
+		children: [
+			{ label: 'Deutschzeit Hakkında', href: '/hakkimizda' },
+			{ label: 'Online Almanca Öğrenmek', href: '/online-almanca-ogrenmek' },
+			{ label: 'Almanca Sertifika Sınavları ve Seviyeler', href: '/almanca-sertifika-sinavlari' },
+			{ label: 'Sıkça Sorulan Sorular', href: '/sss' },
+		],
+	},
+	{ label: 'Özel Ders', href: '/ozel-ders', active: currentPath === '/ozel-ders' },
+	{ label: 'Online Kurs', href: '/online-kurs', active: currentPath.startsWith('/online-kurs') },
+	{
+		label: 'Ders Alanları', href: '/ders-alanlari', active: currentPath.startsWith('/ders-alanlari'),
+		children: [
+			{ label: 'Evde Almanca Öğrenmek: Self Study', href: '/ders-alanlari/evde-almanca-ogrenmek' },
+			{ label: 'Alman Okulları İçin Almanca Özel Ders', href: '/ders-alanlari/alman-okullari-icin-ozel-ders' },
+			{ label: 'Üniversite Almanca Hazırlık', href: '/ders-alanlari/universite-almanca-hazirlik' },
+			{ label: 'Almanca Konuşma Sınıfı', href: '/ders-alanlari/almanca-konusma-sinifi' },
+			{ label: 'İş Almancası / Deutsch für den Beruf', href: '/ders-alanlari/is-almancasi' },
+			{ label: 'Şirketler İçin Almanca', href: '/ders-alanlari/sirketler-icin-almanca' },
+		],
+	},
+	{ label: 'Sınav Hazırlığı', href: '/sinav-hazirligi', active: currentPath.startsWith('/sinav-hazirligi') },
+	{ label: 'İletişim', href: '/iletisim', active: currentPath === '/iletisim' },
+];
+---
+
+<header class="site-header">
+	<div class="utility-bar">
+		<div class="container utility-content">
+			<p><strong>DEUTSCHZEIT</strong><span></span>Profesyonel Almanca Eğitim Merkezi</p>
+			<div class="contact-links">
+				<a href="tel:+905000000000">+90 500 000 00 00</a>
+				<a class="instagram" href="#" aria-label="Instagram hesabımız">
+					<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7.2 2h9.6A5.2 5.2 0 0 1 22 7.2v9.6a5.2 5.2 0 0 1-5.2 5.2H7.2A5.2 5.2 0 0 1 2 16.8V7.2A5.2 5.2 0 0 1 7.2 2Zm-.1 2A3.1 3.1 0 0 0 4 7.1v9.8A3.1 3.1 0 0 0 7.1 20h9.8a3.1 3.1 0 0 0 3.1-3.1V7.1A3.1 3.1 0 0 0 16.9 4H7.1Zm10.2 1.5a1.2 1.2 0 1 1 0 2.4 1.2 1.2 0 0 1 0-2.4ZM12 7a5 5 0 1 1 0 10 5 5 0 0 1 0-10Zm0 2a3 3 0 1 0 0 6 3 3 0 0 0 0-6Z" /></svg>
+					Instagram
+				</a>
+			</div>
+		</div>
+	</div>
+
+	<div class="main-bar">
+		<div class="container navigation">
+			<a class="brand" href="/" aria-label="Deutschzeit anasayfa">
+				<img src="/logo.png" alt="Deutschzeit" width="156" height="104" />
+			</a>
+
+			<nav class="desktop-nav" aria-label="Ana menü">
+				{navItems.map((item) => (
+					<div class:list={['nav-item', { 'has-dropdown': item.children }] }>
+						<a href={item.href} aria-current={item.active ? 'page' : undefined}>{item.label}{item.children && <span class="chevron" aria-hidden="true"></span>}</a>
+						{item.children && <div class="dropdown">{item.children.map((child) => <a href={child.href}>{child.label}<span>→</span></a>)}</div>}
+					</div>
+				))}
+			</nav>
+
+			<div class="desktop-actions">
+				<button class="search-button" type="button" aria-label="Sitede ara">
+					<svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="10.7" cy="10.7" r="6.5"></circle><path d="m15.7 15.7 4.8 4.8"></path></svg>
+				</button>
+				<a class="level-button" href="/seviye-testi"><span>Ücretsiz</span> Seviye Tespiti <b aria-hidden="true">→</b></a>
+			</div>
+
+			<details class="mobile-menu">
+				<summary aria-label="Menüyü aç veya kapat"><span></span><span></span><span></span></summary>
+				<div class="mobile-panel">
+					<nav aria-label="Mobil menü">
+						{navItems.map((item) => <div class="mobile-nav-item"><a href={item.href} aria-current={item.active ? 'page' : undefined}>{item.label}</a>{item.children && <div class="mobile-submenu">{item.children.map((child) => <a href={child.href}>{child.label}</a>)}</div>}</div>)}
+					</nav>
+					<a class="mobile-level" href="/seviye-testi">Ücretsiz Seviye Tespiti <b>→</b></a>
+				</div>
+			</details>
+		</div>
+	</div>
+</header>
+
+<style>
+	.site-header {
+		--red: #dc0b20;
+		--red-dark: #af0617;
+		--yellow: #f2b900;
+		--ink: #1b1b1b;
+		--line: #e5e2dc;
+		position: relative;
+		z-index: 20;
+		font-family: Inter, Arial, Helvetica, sans-serif;
+		overflow: visible;
+	}
+
+	.container { width: min(1460px, calc(100% - 64px)); max-width: 100%; margin-inline: auto; }
+
+	.utility-bar {
+		position: relative;
+		background: var(--ink);
+		color: #fff;
+	}
+
+	.utility-bar::after {
+		position: absolute;
+		bottom: 0;
+		left: 0;
+		width: 100%;
+		height: 2px;
+		background: linear-gradient(90deg, var(--red) 0 72%, var(--yellow) 72%);
+		content: '';
+	}
+
+	.utility-content {
+		display: flex;
+		height: 38px;
+		align-items: center;
+		justify-content: space-between;
+		font-size: 11px;
+		letter-spacing: .06em;
+	}
+
+	.utility-content p { display: flex; margin: 0; align-items: center; color: #d7d7d7; }
+	.utility-content p strong { color: var(--yellow); font-size: 10px; letter-spacing: .13em; }
+	.utility-content p span { width: 1px; height: 12px; margin: 0 12px; background: #656565; }
+	.contact-links { display: flex; align-items: center; gap: 24px; }
+	.contact-links a { color: #fff; font-weight: 600; text-decoration: none; }
+	.instagram { display: inline-flex; align-items: center; gap: 7px; }
+	.instagram svg { width: 16px; height: 16px; fill: currentColor; }
+
+	.main-bar { border-bottom: 1px solid var(--line); background: #fff; box-shadow: 0 5px 18px rgb(0 0 0 / 5%); }
+	.navigation { display: grid; grid-template-columns: 180px minmax(0, 1fr) auto; min-height: 108px; align-items: center; gap: 30px; }
+
+	.brand { display: grid; width: 166px; height: 104px; place-items: center; }
+	.brand img { display: block; width: 156px; height: 104px; object-fit: contain; }
+
+	.desktop-nav { display: flex; min-width: 0; max-width: 100%; align-items: stretch; justify-content: center; gap: clamp(16px, 1.55vw, 29px); }
+	.nav-item { position: relative; display: flex; align-items: stretch; }
+	.nav-item > a {
+		position: relative;
+		display: flex;
+		min-height: 108px;
+		align-items: center;
+		color: #37332f;
+		font-size: 11.5px;
+		font-weight: 700;
+		letter-spacing: .055em;
+		text-decoration: none;
+		text-transform: uppercase;
+		white-space: nowrap;
+		transition: color 160ms ease;
+	}
+	.nav-item > a::after { position: absolute; right: 0; bottom: -1px; left: 0; height: 3px; background: var(--red); content: ''; transform: scaleX(0); transition: transform 180ms ease; }
+	.nav-item > a:hover, .nav-item > a[aria-current='page'] { color: var(--red); }
+	.nav-item > a:hover::after, .nav-item > a[aria-current='page']::after { transform: scaleX(1); }
+	.chevron { width: 6px; height: 6px; margin: -3px 0 0 7px; border-right: 1px solid currentColor; border-bottom: 1px solid currentColor; transform: rotate(45deg); }
+	.dropdown { position: absolute; top: 88px; left: 50%; z-index: 30; width: 300px; padding: 10px 0; border-top: 4px solid var(--red); background: #fff; box-shadow: 0 18px 38px rgb(26 17 12 / 17%); opacity: 0; pointer-events: none; transform: translate(-50%, 10px); transition: opacity 160ms ease, transform 160ms ease; }
+	.nav-item:hover .dropdown, .nav-item:focus-within .dropdown { opacity: 1; pointer-events: auto; transform: translate(-50%, 0); }
+	.dropdown > a { display: flex; min-height: 0; align-items: center; justify-content: space-between; gap: 14px; padding: 11px 18px; color: #4a4540; font-size: 11px; font-weight: 600; letter-spacing: 0; line-height: 1.45; text-decoration: none; text-transform: none; white-space: normal; }
+	.dropdown > a:hover { background: #f7f4ee; color: var(--red); }
+	.dropdown > a > span { color: var(--red); font-size: 15px; }
+
+	.desktop-actions { display: flex; align-items: center; gap: 11px; }
+	.search-button {
+		display: grid;
+		width: 42px;
+		height: 42px;
+		padding: 0;
+		place-items: center;
+		border: 1px solid #d9d6d0;
+		border-radius: 2px;
+		background: #fff;
+		color: var(--ink);
+		cursor: pointer;
+		transition: border-color 160ms ease, color 160ms ease;
+	}
+	.search-button:hover { border-color: var(--red); color: var(--red); }
+	.search-button svg { width: 19px; fill: none; stroke: currentColor; stroke-width: 1.8; stroke-linecap: round; }
+
+	.level-button {
+		display: inline-flex;
+		height: 44px;
+		align-items: center;
+		gap: 5px;
+		box-sizing: border-box;
+		padding: 0 19px;
+		border: 1px solid var(--red);
+		border-radius: 2px;
+		background: var(--red);
+		color: #fff;
+		font-size: 11px;
+		font-weight: 800;
+		letter-spacing: .025em;
+		text-decoration: none;
+		text-transform: uppercase;
+		white-space: nowrap;
+		transition: background 160ms ease;
+	}
+	.level-button span { color: var(--yellow); }
+	.level-button b { margin-left: 4px; font-size: 17px; }
+	.level-button:hover { background: var(--red-dark); }
+	.mobile-menu { display: none; }
+
+	@media (max-width: 1260px) {
+		.navigation { grid-template-columns: 150px minmax(0, 1fr) auto; gap: 18px; }
+		.brand { width: 145px; }
+		.brand img { width: 138px; height: 92px; }
+		.desktop-nav { gap: 14px; }
+		.nav-item > a { font-size: 10.5px; }
+		.level-button span { display: none; }
+		.level-button { padding-inline: 14px; }
+	}
+
+	@media (max-width: 1020px) {
+		.container { width: min(100% - 40px, 920px); }
+		.navigation { grid-template-columns: 1fr auto; min-height: 92px; }
+		.brand { width: 135px; height: 88px; }
+		.brand img { width: 126px; height: 84px; }
+		.desktop-nav, .desktop-actions { display: none; }
+		.mobile-menu { display: block; position: relative; }
+		.mobile-menu summary {
+			display: flex;
+			width: 46px;
+			height: 44px;
+			box-sizing: border-box;
+			flex-direction: column;
+			justify-content: center;
+			gap: 5px;
+			padding: 0 12px;
+			border: 1px solid var(--red);
+			border-radius: 2px;
+			background: var(--red);
+			cursor: pointer;
+			list-style: none;
+		}
+		.mobile-menu summary::-webkit-details-marker { display: none; }
+		.mobile-menu summary span { height: 2px; background: #fff; }
+		.mobile-panel { position: absolute; top: 60px; right: 0; width: min(340px, calc(100vw - 40px)); max-width: calc(100vw - 40px); box-sizing: border-box; padding: 14px 22px 22px; border-top: 4px solid var(--red); background: var(--ink); box-shadow: 0 18px 38px rgb(0 0 0 / 20%); }
+		.mobile-panel nav { display: flex; flex-direction: column; }
+		.mobile-nav-item > a { display: block; padding: 13px 2px; border-bottom: 1px solid rgb(255 255 255 / 12%); color: #fff; font-size: 12px; font-weight: 700; letter-spacing: .04em; text-decoration: none; text-transform: uppercase; }
+		.mobile-nav-item > a[aria-current='page'] { color: var(--yellow); }
+		.mobile-submenu { display: grid; padding: 7px 0 9px 13px; border-bottom: 1px solid rgb(255 255 255 / 12%); }
+		.mobile-submenu > a { padding: 7px 0; color: #aaa7a3; font-size: 10px; line-height: 1.4; text-decoration: none; }
+		.mobile-level { display: flex; margin-top: 18px; align-items: center; justify-content: space-between; padding: 14px; background: var(--red); color: #fff; font-size: 11px; font-weight: 800; letter-spacing: .04em; text-decoration: none; text-transform: uppercase; }
+	}
+
+	@media (max-width: 560px) {
+		.container { width: calc(100% - 28px); }
+		.utility-content { height: 35px; }
+		.utility-content p { font-size: 9px; }
+		.utility-content p strong, .utility-content p span, .contact-links > a:first-child, .instagram { display: none; }
+		.navigation { min-height: 84px; }
+		.brand { width: 120px; height: 80px; }
+		.brand img { width: 114px; height: 76px; }
+	}
+</style>

@@ -1,0 +1,145 @@
+---
+interface ContentSection {
+	title: string;
+	intro?: string;
+	items?: string[];
+}
+
+interface Course {
+	parentLabel?: string;
+	parentHref?: string;
+	level: string;
+	title: string;
+	headline: string;
+	lead: string;
+	paragraphs: string[];
+	hours: string;
+	weeks: string;
+	schedule: string;
+	groupSize: string;
+	packageItems: string[];
+	price?: string;
+	sections: ContentSection[];
+}
+
+interface Props { course: Course }
+const { course } = Astro.props;
+const parentLabel = course.parentLabel ?? 'Online Kurslar';
+const parentHref = course.parentHref ?? '/online-kurs';
+---
+
+<main class="detail-page">
+	<section class="course-hero">
+		<div class="page-container">
+			<nav aria-label="Sayfa yolu"><a href="/">Ana Sayfa</a><span>→</span><a href={parentHref}>{parentLabel}</a><span>→</span><strong>{course.level}</strong></nav>
+			<div class="hero-grid">
+				<div class="level-mark"><span>{course.level}</span><small>ALMANCA</small></div>
+				<div class="hero-copy"><p>Canlı · Online · Etkileşimli</p><h1>{course.headline}</h1><p class="lead">{course.lead}</p></div>
+			</div>
+		</div>
+	</section>
+
+	<section class="course-body">
+		<div class="page-container body-grid">
+			<div class="content">
+				<section class="introduction">
+					<p class="section-label">{course.title}</p>
+					{course.paragraphs.map((paragraph) => <p>{paragraph}</p>)}
+				</section>
+
+				{course.sections.map((section, index) => (
+					<section class="content-section">
+						<div class="section-title"><span>{String(index + 1).padStart(2, '0')}</span><h2>{section.title}</h2></div>
+						{section.intro && <p>{section.intro}</p>}
+						{section.items && <ul>{section.items.map((item) => <li><span>✓</span>{item}</li>)}</ul>}
+					</section>
+				))}
+			</div>
+
+			<aside>
+				<div class="summary-card">
+					<p class="card-label">Program özeti</p>
+					<h2>{course.title}</h2>
+					<div class="facts">
+						<div><small>Canlı eğitim</small><strong>{course.hours}</strong></div>
+						<div><small>Program süresi</small><strong>{course.weeks}</strong></div>
+						<div><small>Ders planı</small><strong>{course.schedule}</strong></div>
+						<div><small>Sınıf</small><strong>{course.groupSize}</strong></div>
+					</div>
+					<div class="package"><small>Programa dahil</small><ul>{course.packageItems.map((item) => <li><span>+</span>{item}</li>)}</ul></div>
+					{course.price ? <div class="price"><small>Kurs ücreti</small><strong>{course.price}</strong></div> : <div class="price"><small>Kurs ücreti</small><strong>Bilgi Alın</strong></div>}
+					<a href="/iletisim">Kursa Başvurun <span>→</span></a>
+				</div>
+			</aside>
+		</div>
+	</section>
+
+	<section class="detail-cta"><div class="page-container"><div><p>Karar vermeden önce</p><h2>Seviyenizden emin değil misiniz?</h2></div><a href="/seviye-testi">Ücretsiz Seviye Testini Çözün <span>→</span></a></div></section>
+</main>
+
+<style>
+	.detail-page { --red: #dc0b20; --yellow: #f2b900; --ink: #1b1b1b; font-family: Inter, Arial, Helvetica, sans-serif; overflow: hidden; }
+	.page-container { width: min(1160px, calc(100% - 64px)); max-width: 100%; margin-inline: auto; }
+	.course-hero { padding: 30px 0 72px; background: var(--ink); color: #fff; }
+	.course-hero nav { display: flex; margin-bottom: 48px; align-items: center; gap: 10px; color: #666; font-size: 8px; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; }
+	.course-hero nav a { color: #888; text-decoration: none; }
+	.course-hero nav strong { color: var(--yellow); }
+	.hero-grid { display: grid; grid-template-columns: 170px 1fr; align-items: center; gap: 54px; }
+	.level-mark { display: flex; width: 160px; height: 160px; align-items: center; justify-content: center; flex-direction: column; background: var(--red); }
+	.level-mark span { color: var(--yellow); font-family: Georgia, serif; font-size: 70px; line-height: 1; }
+	.level-mark small { margin-top: 8px; color: #fff; font-size: 8px; font-weight: 800; letter-spacing: .2em; }
+	.hero-copy > p:first-child, .section-label, .card-label, .detail-cta p { margin: 0 0 14px; color: var(--yellow); font-size: 9px; font-weight: 800; letter-spacing: .13em; text-transform: uppercase; }
+	.hero-copy h1 { max-width: 850px; margin: 0; font-family: Georgia, serif; font-size: clamp(39px, 4.7vw, 61px); font-weight: 500; letter-spacing: -.045em; line-height: 1.03; }
+	.lead { max-width: 740px; margin: 21px 0 0; color: #b3b0ac; font-size: 14px; line-height: 1.75; }
+
+	.course-body { padding: 90px 0 105px; background: #fff; }
+	.body-grid { display: grid; grid-template-columns: minmax(0, 1fr) 340px; align-items: start; gap: 80px; }
+	.introduction { padding-bottom: 45px; border-bottom: 1px solid #ddd9d2; }
+	.section-label { color: var(--red); }
+	.introduction > p:not(.section-label), .content-section > p { margin: 0; color: #655f58; font-size: 14px; line-height: 1.9; }
+	.introduction > p + p { margin-top: 18px; }
+	.content-section { padding: 43px 0; border-bottom: 1px solid #ddd9d2; }
+	.section-title { display: grid; margin-bottom: 20px; grid-template-columns: 39px 1fr; gap: 16px; }
+	.section-title > span { padding-top: 6px; border-top: 3px solid var(--yellow); color: var(--red); font-family: Georgia, serif; font-size: 14px; text-align: center; }
+	.section-title h2 { margin: 0; color: var(--ink); font-family: Georgia, serif; font-size: 29px; font-weight: 500; letter-spacing: -.02em; }
+	.content-section > p { margin-bottom: 20px; }
+	.content-section ul { display: grid; margin: 0; padding: 0; gap: 11px; list-style: none; }
+	.content-section li { display: flex; align-items: flex-start; gap: 11px; color: #5e5852; font-size: 13px; line-height: 1.65; }
+	.content-section li > span { display: grid; width: 19px; height: 19px; flex: 0 0 auto; margin-top: 1px; place-items: center; border-radius: 50%; background: #f8edca; color: var(--red); font-size: 9px; }
+
+	aside { position: sticky; top: 20px; }
+	.summary-card { padding: 28px 28px 30px; border-top: 5px solid var(--yellow); background: #f5f3ef; }
+	.card-label { color: var(--red); }
+	.summary-card > h2 { margin: 0 0 24px; color: var(--ink); font-family: Georgia, serif; font-size: 26px; font-weight: 500; }
+	.facts { display: grid; grid-template-columns: repeat(2, 1fr); border-top: 1px solid #dad5cd; border-left: 1px solid #dad5cd; }
+	.facts > div { display: flex; min-height: 78px; padding: 13px; justify-content: center; flex-direction: column; gap: 6px; border-right: 1px solid #dad5cd; border-bottom: 1px solid #dad5cd; }
+	.facts small, .package > small, .price small { color: #928b83; font-size: 8px; font-weight: 800; letter-spacing: .06em; text-transform: uppercase; }
+	.facts strong { color: var(--ink); font-family: Georgia, serif; font-size: 15px; font-weight: 500; }
+	.package { padding: 23px 0; border-bottom: 1px solid #dad5cd; }
+	.package ul { display: grid; margin: 13px 0 0; padding: 0; gap: 9px; list-style: none; }
+	.package li { display: flex; gap: 9px; color: #5f5953; font-size: 10px; line-height: 1.5; }
+	.package li span { color: var(--red); font-weight: 800; }
+	.price { display: flex; padding: 22px 0; align-items: end; justify-content: space-between; gap: 20px; }
+	.price strong { color: var(--red); font-family: Georgia, serif; font-size: 23px; font-weight: 500; }
+	.summary-card > a { display: flex; min-height: 48px; align-items: center; justify-content: space-between; padding: 0 17px; background: var(--red); color: #fff; font-size: 9px; font-weight: 800; letter-spacing: .07em; text-decoration: none; text-transform: uppercase; }
+	.summary-card > a span { color: var(--yellow); font-size: 18px; }
+
+	.detail-cta { padding: 65px 0; background: var(--yellow); }
+	.detail-cta > div { display: flex; align-items: center; justify-content: space-between; gap: 40px; }
+	.detail-cta p { color: var(--red); }
+	.detail-cta h2 { margin: 0; color: var(--ink); font-family: Georgia, serif; font-size: clamp(30px, 3.3vw, 42px); font-weight: 500; letter-spacing: -.035em; }
+	.detail-cta a { display: inline-flex; min-height: 47px; align-items: center; gap: 16px; padding: 0 18px; background: var(--red); color: #fff; font-size: 9px; font-weight: 800; letter-spacing: .07em; text-decoration: none; text-transform: uppercase; white-space: nowrap; }
+	.detail-cta a span { color: var(--yellow); font-size: 18px; }
+
+	@media (max-width: 900px) { .body-grid { grid-template-columns: 1fr; } aside { position: static; width: min(450px, 100%); } }
+	@media (max-width: 620px) {
+		.page-container { width: calc(100% - 36px); }
+		.course-hero { padding-bottom: 58px; }
+		.hero-grid { grid-template-columns: 1fr; gap: 30px; }
+		.level-mark { width: 105px; height: 105px; }
+		.level-mark span { font-size: 46px; }
+		.course-body { padding: 65px 0 75px; }
+		.section-title h2 { font-size: 25px; }
+		.detail-cta > div { align-items: flex-start; flex-direction: column; }
+	}
+</style>

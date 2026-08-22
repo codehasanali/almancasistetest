@@ -1,0 +1,206 @@
+---
+const questions = [
+	{ level: 'A1', text: 'Ich ___ Deniz.', options: ['heiße', 'heißt', 'heißen', 'bist'], correct: 0 },
+	{ level: 'A1', text: 'Woher ___ du?', options: ['kommt', 'kommen', 'kommst', 'komme'], correct: 2 },
+	{ level: 'A1', text: 'Das ist ___ Buch.', options: ['meine', 'mein', 'meinen', 'meiner'], correct: 1 },
+	{ level: 'A2', text: 'Gestern ___ ich ins Kino gegangen.', options: ['habe', 'werde', 'bin', 'war'], correct: 2 },
+	{ level: 'A2', text: 'Ich lerne Deutsch, ___ ich in Deutschland arbeiten möchte.', options: ['denn', 'weil', 'aber', 'oder'], correct: 1 },
+	{ level: 'A2', text: 'Können Sie mir sagen, ___ der Bahnhof ist?', options: ['wann', 'was', 'wer', 'wo'], correct: 3 },
+	{ level: 'B1', text: 'Wenn ich mehr Zeit hätte, ___ ich öfter reisen.', options: ['werde', 'würde', 'wurde', 'war'], correct: 1 },
+	{ level: 'B1', text: 'Er hat vergessen, die Tür ___.', options: ['abschließen', 'abgeschlossen', 'abzuschließen', 'schließt ab'], correct: 2 },
+	{ level: 'B1', text: 'Obwohl es stark regnete, ___ wir spazieren.', options: ['gingen', 'gehen', 'gegangen', 'ginge'], correct: 0 },
+	{ level: 'B2', text: 'Die Firma sucht Mitarbeiter, ___ sehr gut Deutsch sprechen.', options: ['denen', 'deren', 'die', 'welchen'], correct: 2 },
+	{ level: 'B2', text: 'Hätte ich das gewusst, ___ ich früher gekommen.', options: ['hätte', 'würde', 'bin', 'wäre'], correct: 3 },
+	{ level: 'B2', text: 'Das Problem muss so schnell wie möglich ___.', options: ['lösen', 'gelöst werden', 'gelöst haben', 'zu lösen'], correct: 1 },
+	{ level: 'C1', text: 'Seine Argumentation war überzeugend, ___ einige Belege fehlten.', options: ['wenngleich', 'sodass', 'indem', 'zumal'], correct: 0 },
+	{ level: 'C1', text: 'Die Ergebnisse lassen darauf ___, dass die Methode erfolgreich ist.', options: ['folgen', 'schließen', 'denken', 'meinen'], correct: 1 },
+	{ level: 'C1', text: 'Kaum hatte er den Raum betreten, ___ die Diskussion.', options: ['hat begonnen', 'beginne', 'begann', 'beginnen würde'], correct: 2 },
+];
+---
+
+<main class="test-page">
+	<section class="test-hero">
+		<div class="page-container hero-grid">
+			<div class="hero-copy">
+				<p class="label"><span></span> Ücretsiz online değerlendirme</p>
+				<h1>Almanca seviyenizi<br /><em>15 soruda</em> keşfedin.</h1>
+				<p>A1 başlangıç seviyesinden C1 ileri seviyeye kadar hazırlanan soruları yanıtlayın. Sonucunuza göre hangi eğitim programından başlamanız gerektiğine dair ilk fikri edinin.</p>
+				<ul><li><span>✓</span> Yaklaşık 5 dakika</li><li><span>✓</span> Anında sonuç</li><li><span>✓</span> A1-C1 değerlendirme</li></ul>
+			</div>
+
+			<div class="test-shell" data-level-test>
+				<div class="test-progress">
+					<div><span data-progress-bar></span></div>
+					<p><strong data-current-number>1</strong> / {questions.length}</p>
+				</div>
+
+				<form data-test-form>
+					{questions.map((question, questionIndex) => (
+						<fieldset data-question data-correct={question.correct} hidden={questionIndex !== 0}>
+							<legend><small>Soru {String(questionIndex + 1).padStart(2, '0')} · {question.level}</small><span>{question.text}</span></legend>
+							<div class="options">
+								{question.options.map((option, optionIndex) => (
+									<label><input type="radio" name={`question-${questionIndex}`} value={optionIndex} /><span><b>{String.fromCharCode(65 + optionIndex)}</b>{option}</span></label>
+								))}
+							</div>
+						</fieldset>
+					))}
+
+					<div class="test-actions"><p>Bir cevap seçerek devam edin.</p><button type="button" data-next disabled>Sonraki Soru <span>→</span></button></div>
+				</form>
+
+				<div class="result" data-result hidden>
+					<p class="result-label">Tahmini Almanca seviyeniz</p>
+					<strong data-result-level>A1</strong>
+					<h2 data-result-title>Başlangıç Seviyesi</h2>
+					<p data-result-description></p>
+					<div class="result-score"><span>Doğru cevap</span><b><i data-result-score>0</i> / {questions.length}</b></div>
+					<div class="result-actions"><a href="/iletisim">Eğitim Danışmanına Ulaşın <span>→</span></a><button type="button" data-restart>Testi Tekrarla</button></div>
+					<small>Bu test ön değerlendirme amaçlıdır. Kesin sınıf yerleşimi için eğitmen değerlendirmesi önerilir.</small>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<section class="after-test"><div class="page-container"><div><p>Sonraki adım</p><h2>Sonucunuza uygun programı birlikte seçelim.</h2></div><p>Test sonucunuz, seviyeniz hakkında ilk değerlendirmeyi sunar. Eğitim danışmanlarımız öğrenme hedefinizi ve uygunluk durumunuzu da dikkate alarak doğru sınıfı belirlemenize yardımcı olur.</p></div></section>
+</main>
+
+<script>
+	const root = document.querySelector<HTMLElement>('[data-level-test]');
+	if (root) {
+		const form = root.querySelector<HTMLFormElement>('[data-test-form]')!;
+		const questions = [...root.querySelectorAll<HTMLElement>('[data-question]')];
+		const nextButton = root.querySelector<HTMLButtonElement>('[data-next]')!;
+		const progressBar = root.querySelector<HTMLElement>('[data-progress-bar]')!;
+		const currentNumber = root.querySelector<HTMLElement>('[data-current-number]')!;
+		const result = root.querySelector<HTMLElement>('[data-result]')!;
+		let current = 0;
+		let score = 0;
+
+		const resultContent = {
+			A1: ['Başlangıç Seviyesi', 'Temel ifadeleri öğrenerek günlük yaşamda basit iletişim kurmaya başlayabilirsiniz. A1 programı sizin için doğru başlangıçtır.'],
+			A2: ['Temel Seviye', 'Günlük konularda temel iletişim kurabiliyorsunuz. Kelime dağarcığınızı ve cümle yapılarınızı A2 programıyla geliştirebilirsiniz.'],
+			B1: ['Orta Seviye', 'Tanıdık konularda kendinizi ifade edebiliyorsunuz. B1 programıyla daha akıcı, bağımsız ve doğru iletişime geçebilirsiniz.'],
+			B2: ['İleri Orta Seviye', 'Karmaşık konuları anlayıp ayrıntılı iletişim kurabiliyorsunuz. B2 programı akademik ve profesyonel yetkinliğinizi güçlendirir.'],
+			C1: ['İleri Seviye', 'Almancayı farklı bağlamlarda esnek ve etkili kullanabiliyorsunuz. C1 programıyla akademik ve profesyonel dil hakimiyetinizi tamamlayabilirsiniz.'],
+		};
+
+		const updateProgress = () => {
+			progressBar.style.width = `${((current + 1) / questions.length) * 100}%`;
+			currentNumber.textContent = String(current + 1);
+		};
+
+		form.addEventListener('change', () => { nextButton.disabled = false; });
+		nextButton.addEventListener('click', () => {
+			const selected = questions[current].querySelector<HTMLInputElement>('input:checked');
+			if (!selected) return;
+			if (Number(selected.value) === Number(questions[current].dataset.correct)) score++;
+
+			if (current < questions.length - 1) {
+				questions[current].hidden = true;
+				current++;
+				questions[current].hidden = false;
+				nextButton.disabled = true;
+				nextButton.innerHTML = current === questions.length - 1 ? 'Sonucu Gör <span>→</span>' : 'Sonraki Soru <span>→</span>';
+				updateProgress();
+				return;
+			}
+
+			const level = score <= 3 ? 'A1' : score <= 6 ? 'A2' : score <= 9 ? 'B1' : score <= 12 ? 'B2' : 'C1';
+			form.hidden = true;
+			root.querySelector<HTMLElement>('.test-progress')!.hidden = true;
+			result.hidden = false;
+			root.querySelector<HTMLElement>('[data-result-level]')!.textContent = level;
+			root.querySelector<HTMLElement>('[data-result-title]')!.textContent = resultContent[level][0];
+			root.querySelector<HTMLElement>('[data-result-description]')!.textContent = resultContent[level][1];
+			root.querySelector<HTMLElement>('[data-result-score]')!.textContent = String(score);
+		});
+
+		root.querySelector<HTMLButtonElement>('[data-restart]')!.addEventListener('click', () => {
+			form.reset();
+			questions.forEach((question, index) => { question.hidden = index !== 0; });
+			current = 0;
+			score = 0;
+			result.hidden = true;
+			form.hidden = false;
+			root.querySelector<HTMLElement>('.test-progress')!.hidden = false;
+			nextButton.disabled = true;
+			nextButton.innerHTML = 'Sonraki Soru <span>→</span>';
+			updateProgress();
+		});
+
+		updateProgress();
+	}
+</script>
+
+<style>
+	.test-page { --red: #dc0b20; --red-dark: #a90516; --yellow: #f2b900; --ink: #1b1b1b; font-family: Inter, Arial, Helvetica, sans-serif; overflow: hidden; }
+	.page-container { width: min(1160px, calc(100% - 64px)); max-width: 100%; margin-inline: auto; }
+	.test-hero { padding: 80px 0 95px; background: #f7f6f3; }
+	.hero-grid { display: grid; grid-template-columns: .85fr 1.15fr; align-items: start; gap: clamp(60px, 9vw, 120px); }
+	.hero-copy { padding-top: 27px; }
+	.label, .after-test > div > div > p { display: flex; margin: 0 0 18px; align-items: center; gap: 11px; color: var(--red); font-size: 10px; font-weight: 800; letter-spacing: .13em; text-transform: uppercase; }
+	.label span { width: 29px; height: 3px; background: var(--yellow); }
+	h1 { margin: 0; color: var(--ink); font-family: Georgia, serif; font-size: clamp(46px, 5vw, 65px); font-weight: 500; letter-spacing: -.05em; line-height: .98; }
+	h1 em { color: var(--red); font-weight: 500; }
+	.hero-copy > p:not(.label) { margin: 27px 0 0; color: #68625b; font-size: 14px; line-height: 1.8; }
+	.hero-copy ul { display: flex; margin: 27px 0 0; padding: 20px 0 0; gap: 18px; border-top: 1px solid #ddd9d2; list-style: none; }
+	.hero-copy li { color: #5e5852; font-size: 10px; }
+	.hero-copy li span { margin-right: 4px; color: var(--red); }
+
+	.test-shell { min-width: 0; min-height: 550px; padding: 31px 34px 34px; border-top: 5px solid var(--yellow); background: #fff; box-shadow: 0 24px 55px rgb(38 23 17 / 13%); }
+	.test-progress { display: flex; align-items: center; gap: 18px; }
+	.test-progress > div { flex: 1; height: 4px; overflow: hidden; background: #ece8e1; }
+	.test-progress > div span { display: block; width: 0; height: 100%; background: var(--red); transition: width 220ms ease; }
+	.test-progress p { margin: 0; color: #9b958e; font-size: 10px; }
+	.test-progress strong { color: var(--ink); font-size: 13px; }
+	fieldset { margin: 47px 0 0; padding: 0; border: 0; }
+	fieldset[hidden], .result[hidden], form[hidden], .test-progress[hidden] { display: none; }
+	legend { display: flex; width: 100%; flex-direction: column; gap: 13px; }
+	legend small { color: var(--red); font-size: 9px; font-weight: 800; letter-spacing: .11em; text-transform: uppercase; }
+	legend > span { color: var(--ink); font-family: Georgia, serif; font-size: clamp(25px, 2.5vw, 32px); line-height: 1.25; }
+	.options { display: grid; margin-top: 30px; grid-template-columns: repeat(2, 1fr); gap: 11px; }
+	.options label { cursor: pointer; }
+	.options input { position: absolute; opacity: 0; pointer-events: none; }
+	.options label > span { display: flex; min-height: 53px; align-items: center; gap: 13px; padding: 8px 13px; border: 1px solid #ddd9d2; color: #4e4944; font-size: 12px; transition: border-color 150ms ease, background 150ms ease; }
+	.options label > span b { display: grid; width: 28px; height: 28px; flex: 0 0 auto; place-items: center; background: #f4f1ec; color: #777169; font-size: 9px; }
+	.options input:checked + span { border-color: var(--red); background: #fff8f8; color: var(--ink); }
+	.options input:checked + span b { background: var(--red); color: #fff; }
+	.options input:focus-visible + span { outline: 2px solid var(--yellow); outline-offset: 2px; }
+	.test-actions { display: flex; margin-top: 37px; align-items: center; justify-content: space-between; gap: 20px; }
+	.test-actions p { margin: 0; color: #969089; font-size: 9px; }
+	.test-actions button, .result-actions a { display: inline-flex; min-height: 45px; align-items: center; gap: 14px; padding: 0 18px; border: 0; background: var(--red); color: #fff; cursor: pointer; font-size: 9px; font-weight: 800; letter-spacing: .07em; text-decoration: none; text-transform: uppercase; }
+	.test-actions button:disabled { background: #c8c4be; cursor: not-allowed; }
+	.test-actions button span, .result-actions a span { color: var(--yellow); font-size: 17px; }
+
+	.result { padding-top: 20px; text-align: center; }
+	.result-label { margin: 0 0 10px; color: var(--red); font-size: 9px; font-weight: 800; letter-spacing: .12em; text-transform: uppercase; }
+	.result > strong { display: block; color: var(--yellow); font-family: Georgia, serif; font-size: 92px; font-weight: 500; letter-spacing: -.06em; line-height: 1; text-shadow: 2px 2px 0 var(--red); }
+	.result h2 { margin: 10px 0 13px; color: var(--ink); font-family: Georgia, serif; font-size: 29px; font-weight: 500; }
+	.result > p:not(.result-label) { max-width: 500px; margin: 0 auto; color: #6d675f; font-size: 12.5px; line-height: 1.7; }
+	.result-score { display: flex; width: 190px; margin: 23px auto; align-items: center; justify-content: space-between; padding: 11px 14px; background: #f4f1ec; color: #777169; font-size: 9px; text-transform: uppercase; }
+	.result-score b { color: var(--ink); font-size: 13px; }
+	.result-score i { color: var(--red); font-style: normal; }
+	.result-actions { display: flex; align-items: center; justify-content: center; gap: 17px; }
+	.result-actions button { border: 0; border-bottom: 1px solid #aaa49d; background: transparent; color: var(--ink); cursor: pointer; font-size: 9px; font-weight: 800; line-height: 30px; text-transform: uppercase; }
+	.result > small { display: block; max-width: 480px; margin: 22px auto 0; color: #99938c; font-size: 8.5px; line-height: 1.5; }
+
+	.after-test { padding: 78px 0; background: var(--ink); color: #fff; }
+	.after-test > div { display: grid; grid-template-columns: 1fr .9fr; align-items: center; gap: 90px; }
+	.after-test > div > div > p { color: var(--yellow); }
+	.after-test h2 { margin: 0; font-family: Georgia, serif; font-size: clamp(32px, 3.7vw, 46px); font-weight: 500; letter-spacing: -.035em; line-height: 1.1; }
+	.after-test > div > p { margin: 0; padding-left: 26px; border-left: 1px solid #484848; color: #aaa7a3; font-size: 13px; line-height: 1.8; }
+
+	@media (max-width: 900px) { .hero-grid, .after-test > div { grid-template-columns: 1fr; gap: 50px; } .hero-copy { padding-top: 0; } }
+	@media (max-width: 620px) {
+		.page-container { width: calc(100% - 36px); }
+		.test-hero { padding: 58px 0 70px; }
+		.hero-copy ul { flex-direction: column; gap: 10px; }
+		.test-shell { min-height: 570px; padding: 25px 20px 28px; }
+		.options { grid-template-columns: 1fr; }
+		.test-actions { align-items: flex-start; flex-direction: column; }
+		.test-actions button { width: 100%; justify-content: center; }
+		.result-actions { flex-direction: column; }
+		.after-test { padding: 65px 0; }
+	}
+</style>

@@ -1,0 +1,57 @@
+---
+const levels = [
+	['A1', 'Başlangıç', 'Kendinizi tanıtabilir, günlük konularda kısa cümleler kurabilir ve yavaş konuşulduğunda temel ifadeleri anlayabilirsiniz.'],
+	['A2', 'Temel', 'Günlük hayat, iş ve aileniz hakkında iletişim kurabilir; temel işlerinizi Almanca yürütebilir ve kısa mesajlar yazabilirsiniz.'],
+	['B1', 'Orta', 'Daha karmaşık günlük durumlarla başa çıkabilir, yayınların ana fikrini anlayabilir ve iş ya da akademik alanda kelime dağarcığı geliştirebilirsiniz.'],
+	['B2', 'İyi Orta', 'Almancayı yazılı ve sözlü olarak aktif kullanabilir; eğitim ve iş ortamında ayrıntılı metinler üretip tartışmalara katılabilirsiniz.'],
+	['C1', 'İleri', 'Karmaşık ve uzun metinleri anlayabilir, Alman medyasını rahatlıkla takip edebilir ve akademik ya da profesyonel tartışmalara etkin katılabilirsiniz.'],
+];
+
+const examRows = [
+	['Goethe-Zertifikat', 'A1 - C2', 'Yetişkinler', 'Genel Almanca'],
+	['Goethe-Zertifikat', 'A1 - B2', 'Çocuk ve gençler', 'Genel Almanca'],
+	['Goethe Test-Pro', 'A2 - C1', 'Yetişkinler', 'İş yerinde Almanca'],
+	['ÖSD', 'A1 - C2', 'Yetişkinler / gençler', 'Genel Almanca'],
+	['ÖSD', 'B2 / C2', 'Yetişkinler', 'Sağlık / işletme dili'],
+	['TestDaF', 'B2 - C1', 'Yetişkinler', 'Üniversite ve iş hayatı'],
+	['TELC', 'A1 - C2', 'Yetişkinler', 'Genel, mesleki, üniversite'],
+	['TELC', 'A1 - B2', 'Çocuk ve gençler', 'Genel Almanca'],
+	['DSD 1', 'A2 - B1', 'Gençler', 'Genel Almanca'],
+	['DSD 2', 'B2 - C1', 'Gençler', 'Üniversite hayatı'],
+	['DSH', 'B2 - C1', 'Yetişkinler', 'Üniversite ve bölüm dili'],
+];
+---
+
+<main class="certificate-page">
+	<section class="article-hero"><div class="article-container"><p class="label"><span></span> Almanca sertifika rehberi</p><h1>Almanca Sertifika Sınavları <em>ve Seviyeler</em></h1><p>Vize, iş, üniversite başvurusu veya aile birleşimi için Almanca bilginizi resmi olarak belgelemeniz gerekiyorsa hedefinize uygun sınavı ve seviyeyi doğru seçmeniz gerekir.</p></div></section>
+
+	<section class="article-content"><div class="article-container">
+		<div class="intro"><p>Uluslararası geçerli bir Almanca dil sertifikası almak için çeşitli kuruluşlar tarafından uygulanan sınavlara kayıt olabilirsiniz. Sınavlar; dilin kullanılacağı alan, hedef seviye ve yaş grubuna göre değişiklik gösterir. Öncelikle sertifikayı alma nedeninizi ve hedef seviyenizi belirleyip size uygun sınavı seçmelisiniz.</p><p>Sınav tarihleri, kontenjanlar ve kayıt koşulları sınav merkezine göre değişebilir. Bazı Almanca sertifika sınavları fiziksel sınav merkezlerinin yanında dijital olarak da uygulanmaktadır. Başvuru sırasında seçtiğiniz formatı ve güncel kabul koşullarını mutlaka kontrol edin.</p></div>
+
+		<section class="content-section"><div class="section-heading"><span>01</span><div><p>CEFR standardı</p><h2>Almanca Dil Seviyeleri</h2></div></div><p>Almanca seviyeleri Avrupa Dilleri Ortak Çerçeve Programı’nın belirlediği CEFR standartlarına göre tanımlanır. Sertifika sınavları okuma, yazma, dinleme ve konuşma becerilerini ayrı ayrı değerlendirir; görev türleri ve puanlandırma sistemi sınavdan sınava değişir.</p>
+			<div class="level-table"><table><thead><tr><th>Seviye</th><th>Tanım</th><th>Açıklama</th></tr></thead><tbody>{levels.map((level) => <tr><td data-label="Seviye"><strong>{level[0]}</strong></td><td data-label="Tanım">{level[1]}</td><td data-label="Açıklama">{level[2]}</td></tr>)}</tbody></table></div>
+		</section>
+
+		<section class="content-section"><div class="section-heading"><span>02</span><div><p>Sınav türleri</p><h2>Almanca Sertifika Sınavları</h2></div></div>
+			<div class="exam-articles">
+				<article><h3>Goethe-Zertifikat</h3><p>Goethe-Institut sınavları en çok bilinen sertifika sınavları arasındadır. Yetişkinler A1’den C2’ye, gençler ise A1’den B2’ye kadar sınava katılabilir. İş yerinde Almanca kullanımını ölçen bilgisayar tabanlı Goethe Test-Pro, katılımcının cevaplarına uyum sağlayan okuma ve dinleme görevleri içerir.</p></article>
+				<article><h3>ÖSD</h3><p>ÖSD, Avusturya Almancası bağlamında uluslararası tanınırlığa sahip ve Goethe ile TELC’e benzer bir sınav sistemidir. A1-C2 arasında çocuklar ve yetişkinler için uygulanır. Sağlık çalışanlarına yönelik B2 “Pflege und medizinische Berufe” ve C2 “Wirtschaftssprache” gibi uzmanlık sınavları da bulunur.</p></article>
+				<article><h3>TestDaF</h3><p>TestDaF, Almanya’da üniversite okumak veya akademik ortamda çalışmak isteyenlere yönelik B2-C1 düzeyinde bir sınavdır. Üniversitelerin bölüm bazında beklediği puanlar değişebilir. Klasik ve dijital TestDaF görev yapıları farklı olduğundan kayıt olduğunuz sürüme uygun hazırlanmanız önemlidir.</p><a href="/sinav-hazirligi/testdaf-hazirlik">TestDaF hazırlık programı →</a></article>
+				<article><h3>TELC</h3><p>TELC, A1-C2 arasında genel Almancanın yanında göç, mesleki Almanca, üniversite ve sağlık alanlarına özel çok sayıda sınav sunar. Üniversite başvurularında TELC C1 Hochschule, sağlık sektöründe ise TELC Deutsch B2-C1 Medizin sık tercih edilen sınavlardandır.</p></article>
+				<article><h3>DSD 1 ve DSD 2</h3><p>Deutsches Sprachdiplom sınavları Almanca eğitim veren liselerdeki gençlere yöneliktir. DSD 1, A2-B1 düzeyindedir. DSD 2 ise B2-C1 seviyesinde, üniversite yaşamına yönelik içerikler taşır ve Almanya’daki yükseköğretim başvurularında kullanılabilir.</p><div><a href="/sinav-hazirligi/dsd-1-hazirlik">DSD 1 programı →</a><a href="/sinav-hazirligi/dsd-2-hazirlik">DSD 2 programı →</a></div></article>
+				<article><h3>DSH</h3><p>DSH, TestDaF ve TELC C1 Hochschule gibi üniversite yaşamına yönelik bir sınavdır. Üniversiteler sınavı kendileri uygular; format ve seviye beklentileri kuruma ve başvurulan bölüme göre değişebilir. Bu nedenle hazırlığa başlamadan önce ilgili üniversiteden güncel bilgi alınmalıdır.</p></article>
+			</div>
+		</section>
+
+		<section class="content-section"><div class="section-heading"><span>03</span><div><p>Karşılaştırma</p><h2>Hangi Sınav Hangi Hedefe Uygun?</h2></div></div>
+			<div class="exam-table"><table><thead><tr><th>Sınav</th><th>Seviye</th><th>Yaş</th><th>Alan</th></tr></thead><tbody>{examRows.map((row) => <tr><td data-label="Sınav"><strong>{row[0]}</strong></td><td data-label="Seviye">{row[1]}</td><td data-label="Yaş">{row[2]}</td><td data-label="Alan">{row[3]}</td></tr>)}</tbody></table></div>
+		</section>
+
+		<div class="article-cta"><div><p>Doğru sınavı birlikte seçelim</p><h2>Hedefinize uygun hazırlık programını planlayın.</h2></div><a href="/iletisim">Danışmanlık Alın <span>→</span></a></div>
+	</div></section>
+</main>
+
+<style>
+	.certificate-page{--red:#dc0b20;--yellow:#f2b900;--ink:#1b1b1b;font-family:Inter,Arial,sans-serif;overflow:hidden}.article-container{width:min(1050px,calc(100% - 64px));max-width:100%;margin-inline:auto}.article-hero{padding:82px 0 76px;background:var(--ink);color:#fff}.label{display:flex;margin:0 0 18px;align-items:center;gap:11px;color:var(--yellow);font-size:10px;font-weight:800;letter-spacing:.13em;text-transform:uppercase}.label span{width:29px;height:3px;background:var(--red)}h1{max-width:900px;margin:0;font-family:Georgia,serif;font-size:clamp(45px,5.3vw,67px);font-weight:500;letter-spacing:-.045em;line-height:1.02}h1 em{color:var(--red);font-weight:500}.article-hero .article-container>p:last-child{max-width:760px;margin:26px 0 0;color:#b2afab;font-size:14px;line-height:1.8}.article-content{padding:85px 0 105px}.intro{padding:0 0 52px;border-bottom:1px solid #ddd9d2}.intro p,.content-section>p{margin:0;color:#625c56;font-size:13.5px;line-height:1.9}.intro p+p{margin-top:17px}.content-section{padding:57px 0;border-bottom:1px solid #ddd9d2}.section-heading{display:grid;margin-bottom:25px;grid-template-columns:43px 1fr;gap:17px}.section-heading>span{padding-top:7px;border-top:3px solid var(--yellow);color:var(--red);font-family:Georgia,serif;font-size:15px;text-align:center}.section-heading p{margin:0 0 6px;color:var(--red);font-size:9px;font-weight:800;letter-spacing:.11em;text-transform:uppercase}.section-heading h2{margin:0;color:var(--ink);font-family:Georgia,serif;font-size:35px;font-weight:500;letter-spacing:-.025em}.level-table,.exam-table{margin-top:30px}table{width:100%;border-collapse:collapse}th{padding:13px 15px;background:var(--ink);color:#fff;font-size:8px;letter-spacing:.09em;text-align:left;text-transform:uppercase}td{padding:15px;border-bottom:1px solid #ddd9d2;color:#68625b;font-size:11.5px;line-height:1.65;vertical-align:top}td strong{color:var(--red);font-family:Georgia,serif;font-size:16px;font-weight:500}.exam-articles{display:grid;margin-top:30px;grid-template-columns:repeat(2,1fr);border-top:1px solid #ddd9d2;border-left:1px solid #ddd9d2}.exam-articles article{padding:27px 28px 30px;border-right:1px solid #ddd9d2;border-bottom:1px solid #ddd9d2}.exam-articles h3{margin:0 0 13px;color:var(--ink);font-family:Georgia,serif;font-size:24px;font-weight:500}.exam-articles p{margin:0;color:#68625b;font-size:12px;line-height:1.8}.exam-articles a{display:inline-block;margin-top:16px;color:var(--red);font-size:9px;font-weight:800;text-decoration:none;text-transform:uppercase}.exam-articles article>div{display:flex;gap:18px;flex-wrap:wrap}.article-cta{display:flex;margin-top:65px;align-items:center;justify-content:space-between;gap:40px;padding:38px 40px;background:var(--yellow)}.article-cta p{margin:0 0 8px;color:var(--red);font-size:9px;font-weight:800;text-transform:uppercase}.article-cta h2{margin:0;color:var(--ink);font-family:Georgia,serif;font-size:30px;font-weight:500}.article-cta>a{display:inline-flex;min-height:45px;align-items:center;gap:15px;padding:0 18px;background:var(--red);color:#fff;font-size:9px;font-weight:800;text-decoration:none;text-transform:uppercase;white-space:nowrap}.article-cta>a span{color:var(--yellow);font-size:18px}
+	@media(max-width:700px){.article-container{width:calc(100% - 36px)}.article-hero{padding:58px 0 62px}.article-content{padding:65px 0 75px}.exam-articles{grid-template-columns:1fr}.section-heading h2{font-size:29px}table,thead,tbody,tr,th,td{display:block}thead{display:none}tr{padding:10px 0;border-bottom:1px solid #ccc}td{display:grid;grid-template-columns:92px 1fr;gap:12px;padding:8px 10px;border:0}td::before{content:attr(data-label);color:#918a82;font-size:8px;font-weight:800;letter-spacing:.07em;text-transform:uppercase}.article-cta{align-items:flex-start;flex-direction:column;padding:29px 24px}}
+</style>
