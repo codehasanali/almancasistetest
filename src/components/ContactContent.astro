@@ -1,3 +1,7 @@
+---
+const apiUrl = import.meta.env.PUBLIC_API_URL || 'http://localhost:4000';
+---
+
 <main class="contact-page">
 	<section class="contact-hero">
 		<div class="page-container hero-grid">
@@ -18,17 +22,18 @@
 
 			<div class="form-panel">
 				<div class="form-heading"><p>Eğitim danışmanlığı</p><h2>Size nasıl yardımcı olabiliriz?</h2></div>
-				<form action="mailto:info@deutschzeit.com" method="post" enctype="text/plain">
+				<form id="contact-form" data-api-url={apiUrl}>
 					<div class="field-row">
-						<label>Adınız Soyadınız<input type="text" name="ad-soyad" autocomplete="name" required /></label>
-						<label>Telefon Numaranız<input type="tel" name="telefon" autocomplete="tel" required /></label>
+						<label>Adınız Soyadınız<input type="text" name="name" autocomplete="name" required /></label>
+						<label>Telefon Numaranız<input type="tel" name="phone" autocomplete="tel" required /></label>
 					</div>
 					<div class="field-row">
-						<label>E-posta Adresiniz<input type="email" name="eposta" autocomplete="email" required /></label>
+						<label>E-posta Adresiniz<input type="email" name="email" autocomplete="email" required /></label>
 						<label>İlgilendiğiniz Program<select name="program" required><option value="">Program seçin</option><option>Online Almanca Kursu</option><option>Almanca Özel Ders</option><option>Sınav Hazırlığı</option><option>İş Almancası</option><option>Diğer</option></select></label>
 					</div>
-					<label>Mesajınız<textarea name="mesaj" rows="5" placeholder="Hedefiniz ve mevcut seviyeniz hakkında kısaca bilgi verebilirsiniz."></textarea></label>
+					<label>Mesajınız<textarea name="message" rows="5" maxlength="2000" placeholder="Hedefiniz ve mevcut seviyeniz hakkında kısaca bilgi verebilirsiniz."></textarea></label>
 					<div class="form-bottom"><p>Göndererek sizinle iletişime geçilmesini kabul etmiş olursunuz.</p><button type="submit">Mesajı Gönderin <span>→</span></button></div>
+					<p class="form-status" role="status" aria-live="polite"></p>
 				</form>
 			</div>
 		</div>
@@ -36,6 +41,41 @@
 
 	<section class="quick-links"><div class="page-container"><p>Programları inceleyin</p><div><a href="/online-kurs">Online Almanca Kursu <span>→</span></a><a href="/ozel-ders">Almanca Özel Ders <span>→</span></a><a href="/sinav-hazirligi">Sınav Hazırlığı <span>→</span></a></div></div></section>
 </main>
+
+<script>
+	const form = document.querySelector<HTMLFormElement>('#contact-form');
+
+	form?.addEventListener('submit', async (event) => {
+		event.preventDefault();
+		const button = form.querySelector<HTMLButtonElement>('button[type="submit"]');
+		const status = form.querySelector<HTMLElement>('.form-status');
+		if (!button || !status) return;
+
+		button.disabled = true;
+		status.className = 'form-status';
+		status.textContent = 'Mesajınız gönderiliyor...';
+
+		try {
+			const data = Object.fromEntries(new FormData(form));
+			const response = await fetch(`${form.dataset.apiUrl}/api/contact`, {
+				method: 'POST',
+				headers: { 'content-type': 'application/json' },
+				body: JSON.stringify(data),
+			});
+			const result = await response.json();
+			if (!response.ok) throw new Error(result.message || 'Mesaj gönderilemedi.');
+
+			form.reset();
+			status.classList.add('success');
+			status.textContent = 'Mesajınız alındı. En kısa sürede sizinle iletişime geçeceğiz.';
+		} catch (error) {
+			status.classList.add('error');
+			status.textContent = error instanceof Error ? error.message : 'Mesaj gönderilemedi. Lütfen tekrar deneyin.';
+		} finally {
+			button.disabled = false;
+		}
+	});
+</script>
 
 <style>
 	.contact-page { --red: #dc0b20; --yellow: #f2b900; --ink: #1b1b1b; font-family: Inter, Arial, Helvetica, sans-serif; overflow: hidden; }
@@ -74,6 +114,11 @@
 	.form-bottom p { max-width: 330px; margin: 0; color: #8a847d; font-size: 9px; line-height: 1.5; }
 	button { display: inline-flex; min-height: 47px; align-items: center; gap: 16px; padding: 0 19px; border: 0; background: var(--red); color: #fff; cursor: pointer; font-size: 9px; font-weight: 800; letter-spacing: .07em; text-transform: uppercase; }
 	button span { color: var(--yellow); font-size: 18px; }
+	button:disabled { cursor: wait; opacity: .65; }
+	.form-status { min-height: 20px; margin: -10px 0 0; color: #68625b; font-size: 12px; line-height: 1.5; }
+	.form-status:empty { display: none; }
+	.form-status.success { color: #18753c; }
+	.form-status.error { color: var(--red); }
 
 	.quick-links { padding: 62px 0; background: var(--yellow); }
 	.quick-links > div > p { color: var(--red); }
