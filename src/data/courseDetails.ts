@@ -7,8 +7,8 @@ export const onlineLevelCourses = [
 			'B1 Almanca Kursu, temel seviyeleri tamamlayan ve artık Almancayı daha özgür kullanmak isteyen yetişkinler için tasarlanmıştır. Günlük konuşmaların ötesine geçerek deneyimlerinizi anlatmayı, fikirlerinizi gerekçelendirmeyi ve farklı konularda bağlantılı metinler üretmeyi öğrenirsiniz.',
 			'Canlı online dersler, küçük grup etkileşimi ve dijital egzersizlerle desteklenir. Program aynı zamanda Goethe, TELC ve ÖSD B1 sertifika sınavlarına hazırlık için gerekli dil altyapısını güçlendirir.',
 		],
-		hours: '36 ders saati', weeks: '6 hafta', schedule: 'Haftada 2 gün', groupSize: '4-6 kişi',
-		packageItems: ['Canlı online grup dersleri', 'Sınırsız egzersiz platformu', 'Dijital ders materyalleri', 'Düzenli eğitmen geri bildirimi'],
+		hours: 'Ayda 24 ders', weeks: 'Aylık program', schedule: 'Haftada 6 ders', groupSize: 'En fazla 8 kişi', price: '5.000 TL / ay',
+		packageItems: ['Küçük grupta ayda 24 canlı ders', 'Sınırsız egzersiz platformu', 'Dijital ders materyalleri', 'Düzenli eğitmen geri bildirimi'],
 		sections: [
 			{ title: 'Kursun Amacı', items: ['Günlük ve sosyal konularda daha akıcı iletişim kurmak', 'Deneyim, plan ve düşünceleri ayrıntılı anlatmak', 'Bağlantılı e-posta ve metinler yazmak', 'B1 sertifika sınavlarına dil altyapısı oluşturmak'] },
 			{ title: 'Nasıl İlerliyoruz?', items: ['Geçmiş olayları ve gelecek planlarını anlatma', 'Görüş belirtme ve gerekçelendirme', 'Günlük haber ve metinlerin ana fikrini anlama', 'Konuşma, dinleme ve yazma uygulamaları'] },
@@ -23,8 +23,8 @@ export const onlineLevelCourses = [
 			'B2 Almanca Kursu, Almancayı bağımsız kullanan ve akademik ya da profesyonel iletişim yetkinliğini geliştirmek isteyen katılımcılara yöneliktir. Karmaşık metinleri analiz eder, güncel konularda ayrıntılı tartışmalara katılır ve düşüncelerinizi akıcı biçimde ifade edersiniz.',
 			'Program; ileri dil bilgisi, geniş kelime dağarcığı ve yoğun üretim çalışmalarıyla Goethe, TELC ve ÖSD B2 sınavları ile yükseköğretim hedefleri için güçlü bir hazırlık sağlar.',
 		],
-		hours: '36 ders saati', weeks: '6 hafta', schedule: 'Haftada 2 gün', groupSize: '4-6 kişi',
-		packageItems: ['Canlı online grup dersleri', 'İleri seviye egzersiz platformu', 'Özgün okuma ve dinleme materyalleri', 'Yazılı ve sözlü geri bildirim'],
+		hours: 'Ayda 24 ders', weeks: 'Aylık program', schedule: 'Haftada 6 ders', groupSize: 'En fazla 8 kişi', price: '5.000 TL / ay',
+		packageItems: ['Küçük grupta ayda 24 canlı ders', 'İleri seviye egzersiz platformu', 'Özgün okuma ve dinleme materyalleri', 'Yazılı ve sözlü geri bildirim'],
 		sections: [
 			{ title: 'Kursun Amacı', items: ['Soyut ve karmaşık konuları anlayabilmek', 'Akıcı ve doğal biçimde iletişim kurmak', 'Ayrıntılı metin ve sunumlar oluşturmak', 'B2 sertifika sınavlarına hazırlanmak'] },
 			{ title: 'Nasıl İlerliyoruz?', items: ['Tartışma ve argüman geliştirme çalışmaları', 'Akademik ve profesyonel metin analizi', 'Resmi yazışma ve sunum uygulamaları', 'İleri dil bilgisi ve kelime kullanımı'] },
@@ -39,8 +39,8 @@ export const onlineLevelCourses = [
 			'C1 Almanca Kursu, ileri seviyedeki katılımcıların dili hassas, akıcı ve bağlama uygun şekilde kullanmasını hedefler. Uzun ve karmaşık metinlerde örtük anlamları kavrar, uzmanlık alanınızla ilgili görüşleri yapılandırır ve ayrıntılı sunumlar yaparsınız.',
 			'Yoğun üretim ve geri bildirim odaklı program; üniversite, akademik çalışma, profesyonel kariyer ve C1 düzeyindeki sertifika sınavları için gereken dil hakimiyetini geliştirir.',
 		],
-		hours: '36 ders saati', weeks: '6 hafta', schedule: 'Haftada 2 gün', groupSize: '4-6 kişi',
-		packageItems: ['Canlı ileri seviye dersler', 'Akademik ve profesyonel materyaller', 'Sınırsız dijital egzersizler', 'Ayrıntılı performans geri bildirimi'],
+		hours: 'Ayda 24 ders', weeks: 'Aylık program', schedule: 'Haftada 6 ders', groupSize: 'En fazla 8 kişi', price: '5.000 TL / ay',
+		packageItems: ['Küçük grupta ayda 24 canlı ders', 'Akademik ve profesyonel materyaller', 'Sınırsız dijital egzersizler', 'Ayrıntılı performans geri bildirimi'],
 		sections: [
 			{ title: 'Kursun Amacı', items: ['Almancayı akıcı ve esnek biçimde kullanmak', 'Örtük anlamlar içeren karmaşık metinleri anlamak', 'Akademik ve profesyonel metinler üretmek', 'C1 sertifika ve üniversite hedeflerine hazırlanmak'] },
 			{ title: 'Nasıl İlerliyoruz?', items: ['Akademik makale ve rapor çalışmaları', 'Sunum, münazara ve spontane konuşma', 'Üslup, bağlam ve anlam incelikleri', 'İleri düzey dinleme ve metin analizi'] },
@@ -51,11 +51,24 @@ export const onlineLevelCourses = [
 
 export const examPrepCourses = [
 	{
+		slug: 'osd-hazirlik', level: 'ÖSD', title: 'ÖSD Hazırlık', parentLabel: 'Sınav Hazırlığı', parentHref: '/sinav-hazirligi',
+		headline: 'ÖSD Hazırlık – A1’den C1’e Sertifika Odaklı Eğitim',
+		lead: 'ÖSD sınavının okuma, dinleme, yazma ve konuşma bölümlerine seviyenize uygun çalışmalarla hazırlanın.',
+		paragraphs: ['ÖSD Hazırlık programı, A1-C1 seviyelerinde uluslararası geçerliliğe sahip bir Almanca sertifikası hedefleyen katılımcılar için hazırlanmıştır. Sınavın görev türleri ve değerlendirme ölçütleri ayrıntılı biçimde ele alınır.', 'Seviyenize uygun deneme sınavları, yazılı metin düzeltmeleri ve sözlü sınav uygulamalarıyla eksikleriniz belirlenir; zaman yönetimi ve sınav stratejiniz düzenli geri bildirimlerle geliştirilir.'],
+		hours: '10 ders', weeks: 'Hedefe göre', schedule: 'Esnek plan', groupSize: 'Özel program', price: '15.000 TL',
+		packageItems: ['Canlı ÖSD hazırlık dersleri', 'ÖSD formatına uygun denemeler', 'Yazılı anlatım geri bildirimi', 'Sözlü sınav uygulamaları'],
+		sections: [
+			{ title: 'Programın Amacı', items: ['ÖSD sınav yapısını ve görev türlerini öğrenmek', 'Dört temel dil becerisini hedef seviyede geliştirmek', 'Sınav süresini etkili kullanmak', 'Değerlendirme ölçütlerine uygun yanıtlar üretmek'] },
+			{ title: 'Çalışma Alanları', items: ['Okuma ve dinleme stratejileri', 'Yazılı anlatım ve metin düzeltmeleri', 'Sözlü ifade ve karşılıklı konuşma', 'Deneme sınavları ve hata analizi'] },
+			{ title: 'Kimler Katılabilir?', items: ['A1-C1 düzeyinde ÖSD sertifikası hedefleyenler', 'Avusturya veya Almanca konuşulan ülkelerde eğitim ve çalışma planlayanlar', 'Sınav tekniğini ve zaman yönetimini geliştirmek isteyenler'] },
+		],
+	},
+	{
 		slug: 'dsd-1-hazirlik', level: 'DSD 1', title: 'DSD 1 Hazırlık', parentLabel: 'Sınav Hazırlığı', parentHref: '/sinav-hazirligi',
 		headline: 'DSD 1 Hazırlık – B1 Düzeyinde Sınav Odaklı Eğitim',
 		lead: 'DSD 1 sınavının yazılı ve sözlü bölümlerine sistemli çalışmalar ve gerçek formata uygun uygulamalarla hazırlanın.',
 		paragraphs: ['DSD 1 Hazırlık programı; okuma, dinleme, yazılı iletişim ve sözlü iletişim bölümlerini sınav formatıyla birlikte ele alır. Öğrencinin mevcut seviyesi ve sınava kalan süre doğrultusunda kişisel çalışma öncelikleri belirlenir.', 'Düzenli denemeler, metin üretme çalışmaları ve sözlü sunum uygulamalarıyla sınav tekniği geliştirilir; yapılan her çalışmaya ayrıntılı eğitmen geri bildirimi verilir.'],
-		hours: 'Bilgi alın', weeks: 'Hedefe göre', schedule: 'Planlanır', groupSize: 'Küçük grup / 1:1', price: undefined,
+		hours: '10 ders', weeks: 'Hedefe göre', schedule: 'Esnek plan', groupSize: 'Özel program', price: '15.000 TL',
 		packageItems: ['Canlı sınav hazırlık dersleri', 'DSD formatına uygun denemeler', 'Yazılı metin düzeltmeleri', 'Sözlü sunum geri bildirimi'],
 		sections: [
 			{ title: 'Programın Amacı', items: ['DSD 1 sınav yapısını ayrıntılı öğrenmek', 'B1 düzeyinde dört temel beceriyi güçlendirmek', 'Sınav süresini etkili yönetmek', 'Yazılı ve sözlü bölüm stratejileri geliştirmek'] },
@@ -68,7 +81,7 @@ export const examPrepCourses = [
 		headline: 'DSD 2 Hazırlık – Üniversite Hedefiniz için İleri Seviye Program',
 		lead: 'B2-C1 düzeyindeki akademik dil becerilerinizi geliştirerek DSD 2 sınavına güvenle hazırlanın.',
 		paragraphs: ['DSD 2 Hazırlık programı, Almanya’da üniversite eğitimi hedefleyen öğrencilerin ileri düzey okuma, dinleme, yazma ve konuşma becerilerini sınav formatında geliştirmek için hazırlanmıştır.', 'Akademik metin analizi, yapılandırılmış yazılı anlatım, güncel konular üzerine tartışma ve proje sunumu çalışmaları düzenli denemelerle desteklenir.'],
-		hours: 'Bilgi alın', weeks: 'Hedefe göre', schedule: 'Planlanır', groupSize: 'Küçük grup / 1:1', price: undefined,
+		hours: '10 ders', weeks: 'Hedefe göre', schedule: 'Esnek plan', groupSize: 'Özel program', price: '15.000 TL',
 		packageItems: ['Canlı ileri seviye hazırlık', 'DSD 2 deneme sınavları', 'Akademik yazma düzeltmeleri', 'Sunum ve proje desteği'],
 		sections: [
 			{ title: 'Programın Amacı', items: ['DSD 2 sınav bölümlerine hakim olmak', 'B2-C1 akademik dil becerisi geliştirmek', 'Karmaşık metinleri analiz etmek', 'Sözlü sunumu yapılandırmak ve savunmak'] },
@@ -81,7 +94,7 @@ export const examPrepCourses = [
 		headline: 'TestDaF Hazırlık – Üniversite için Akademik Almanca',
 		lead: 'TestDaF’ın tüm bölümlerine akademik dil, sınav tekniği ve yoğun deneme çalışmalarıyla hazırlanın.',
 		paragraphs: ['TestDaF Hazırlık programı, Almanya’da yükseköğretim hedefleyen B2-C1 seviyesindeki katılımcılara yöneliktir. Okuma ve dinleme metinlerini analiz eder, grafik destekli akademik yazılar üretir ve sözlü görevleri süre içinde tamamlarsınız.', 'Program boyunca gerçek sınav formatına uygun uygulamalar yapılır; güçlü ve geliştirilmesi gereken yönleriniz düzenli geri bildirimlerle takip edilir.'],
-		hours: 'Bilgi alın', weeks: 'Hedefe göre', schedule: 'Planlanır', groupSize: 'Küçük grup / 1:1', price: undefined,
+		hours: '10 ders', weeks: 'Hedefe göre', schedule: 'Esnek plan', groupSize: 'Özel program', price: '15.000 TL',
 		packageItems: ['Canlı TestDaF hazırlık dersleri', 'Sınav formatında denemeler', 'Akademik yazma geri bildirimi', 'Grafik yorumlama çalışmaları'],
 		sections: [
 			{ title: 'Programın Amacı', items: ['TestDaF görev tiplerini ve değerlendirme ölçütlerini öğrenmek', 'Akademik kelime ve ifade repertuvarını geliştirmek', 'Sınav süresini doğru kullanmak', 'Hedeflenen TestDaF sonucuna sistemli hazırlanmak'] },
@@ -94,7 +107,7 @@ export const examPrepCourses = [
 		headline: 'Abitur Hazırlık – Edebiyat, Analiz ve Metin Üretme',
 		lead: 'Almanca edebiyat ve yazılı anlatım becerilerinizi okul programı ve Abitur beklentileri doğrultusunda geliştirin.',
 		paragraphs: ['Abitur Hazırlık programı; Alman Lisesi, İstanbul Erkek Lisesi ve benzer programlarda eğitim gören öğrencilerin edebiyat, metin analizi ve yazılı anlatım gereksinimlerine yönelik hazırlanır.', 'Eser analizi, yorumlama, argüman geliştirme ve yapılandırılmış metin üretme çalışmaları öğrencinin okul müfredatı ve sınav takvimine göre planlanır.'],
-		hours: 'Bilgi alın', weeks: 'Hedefe göre', schedule: 'Planlanır', groupSize: 'Küçük grup / 1:1', price: undefined,
+		hours: '10 ders', weeks: 'Hedefe göre', schedule: 'Esnek plan', groupSize: 'Özel program', price: '15.000 TL',
 		packageItems: ['Canlı Abitur hazırlık dersleri', 'Edebiyat ve metin analizi', 'Yazılı çalışma düzeltmeleri', 'Okul müfredatına özel materyaller'],
 		sections: [
 			{ title: 'Programın Amacı', items: ['Abitur yazılı sınav beklentilerini öğrenmek', 'Edebi metinleri yöntemli biçimde analiz etmek', 'Güçlü ve tutarlı argümanlar geliştirmek', 'Akademik üslupla yapılandırılmış metin yazmak'] },

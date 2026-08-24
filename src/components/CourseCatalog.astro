@@ -1,13 +1,14 @@
 ---
 const levelCourses = [
-	{ level: 'A1', title: 'Almanca A1 Kursu', subtitle: 'Sağlam bir temel edinin.', description: 'Hiç Almanca bilmeyenler için canlı ve etkileşimli başlangıç programı.', hours: '36 Saat', weeks: '6 Hafta', href: '/online-kurs/a1-almanca-kursu' },
-	{ level: 'A2', title: 'Almanca A2 Kursu', subtitle: 'Konuşma yetinizi artırın.', description: 'A1’i tamamlayanlar için günlük iletişim ve sertifika odaklı program.', hours: '36 Saat', weeks: '6 Hafta', href: '/online-kurs/a2-almanca-kursu' },
-	{ level: 'B1', title: 'Almanca B1 Kursu', subtitle: 'Bağımsız iletişime geçin.', description: 'Günlük, sosyal ve mesleki iletişim becerilerinizi ileri taşıyın.', hours: '36 Saat', weeks: '6 Hafta', href: '/online-kurs/b1-almanca-kursu' },
-	{ level: 'B2', title: 'Almanca B2 Kursu', subtitle: 'Akıcı ve profesyonel Almanca.', description: 'Karmaşık konular, akademik metinler ve ileri iletişim programı.', hours: '36 Saat', weeks: '6 Hafta', href: '/online-kurs/b2-almanca-kursu' },
-	{ level: 'C1', title: 'Almanca C1 Kursu', subtitle: 'İleri dil hakimiyeti kazanın.', description: 'Akademik ve profesyonel bağlamlarda etkili Almanca kullanın.', hours: '36 Saat', weeks: '6 Hafta', href: '/online-kurs/c1-almanca-kursu' },
+	{ level: 'A1', title: 'Almanca A1 Kursu', subtitle: 'Sağlam bir temel edinin.', description: 'Hiç Almanca bilmeyenler için canlı ve etkileşimli başlangıç programı.', price: '5.000 TL / ay', schedule: 'Haftada 6 ders', href: '/online-kurs/a1-almanca-kursu' },
+	{ level: 'A2', title: 'Almanca A2 Kursu', subtitle: 'Konuşma yetinizi artırın.', description: 'A1’i tamamlayanlar için günlük iletişim ve sertifika odaklı program.', price: '5.000 TL / ay', schedule: 'Haftada 6 ders', href: '/online-kurs/a2-almanca-kursu' },
+	{ level: 'B1', title: 'Almanca B1 Kursu', subtitle: 'Bağımsız iletişime geçin.', description: 'Günlük, sosyal ve mesleki iletişim becerilerinizi ileri taşıyın.', price: '5.000 TL / ay', schedule: 'Haftada 6 ders', href: '/online-kurs/b1-almanca-kursu' },
+	{ level: 'B2', title: 'Almanca B2 Kursu', subtitle: 'Akıcı ve profesyonel Almanca.', description: 'Karmaşık konular, akademik metinler ve ileri iletişim programı.', price: '5.000 TL / ay', schedule: 'Haftada 6 ders', href: '/online-kurs/b2-almanca-kursu' },
+	{ level: 'C1', title: 'Almanca C1 Kursu', subtitle: 'İleri dil hakimiyeti kazanın.', description: 'Akademik ve profesyonel bağlamlarda etkili Almanca kullanın.', price: '5.000 TL / ay', schedule: 'Haftada 6 ders', href: '/online-kurs/c1-almanca-kursu' },
 ];
 
 const examCourses = [
+	{ level: 'ÖSD', title: 'ÖSD Hazırlık', subtitle: 'A1-C1 sertifika hazırlığı.', description: 'Dört sınav bölümüne seviyenize uygun uygulama ve denemelerle hazırlanın.', href: '/sinav-hazirligi/osd-hazirlik' },
 	{ level: 'DSD 1', title: 'DSD 1 Hazırlık', subtitle: 'B1 düzeyinde sınav hazırlığı.', description: 'Yazılı ve sözlü bölümlere sistemli, sınav odaklı eğitim.', href: '/sinav-hazirligi/dsd-1-hazirlik' },
 	{ level: 'DSD 2', title: 'DSD 2 Hazırlık', subtitle: 'Üniversite hedefinize hazırlanın.', description: 'B2-C1 akademik Almanca ve DSD 2 formatına yoğun hazırlık.', href: '/sinav-hazirligi/dsd-2-hazirlik' },
 	{ level: 'TestDaF', title: 'TestDaF Hazırlık', subtitle: 'Akademik Almancanızı geliştirin.', description: 'TestDaF’ın dört bölümüne deneme ve geri bildirimlerle hazırlanın.', href: '/sinav-hazirligi/testdaf-hazirlik' },
@@ -32,7 +33,7 @@ const examCourses = [
 						<h4>{course.title}</h4>
 						<strong>{course.subtitle}</strong>
 						<p>{course.description}</p>
-						<div class="course-meta"><span><b>{course.hours}</b>Canlı eğitim</span><span><b>{course.weeks}</b>Program</span></div>
+						<div class="course-meta"><span><b>{course.price}</b>Kurs ücreti</span><span><b>{course.schedule}</b>Ders planı</span></div>
 						<div class="card-link"><span>Programı İncele</span><b>→</b></div>
 					</a>
 				))}
@@ -48,7 +49,7 @@ const examCourses = [
 						<h4>{course.title}</h4>
 						<strong>{course.subtitle}</strong>
 						<p>{course.description}</p>
-						<div class="exam-meta"><span>Program süresi ve ders planı hedefinize göre belirlenir.</span></div>
+						<div class="exam-meta"><strong>10 ders · 15.000 TL</strong><span>Yalnızca sınav hazırlığı</span></div>
 						<div class="card-link"><span>Programı İncele</span><b>→</b></div>
 					</a>
 				))}
@@ -98,7 +99,8 @@ const examCourses = [
 	.exam-card h4 { color: #fff; }
 	.exam-card > strong { color: var(--yellow); }
 	.exam-card > p { color: #aaa7a3; }
-	.exam-meta { min-height: 54px; margin-top: auto; padding: 14px 0; border-top: 1px solid #3c3c3c; border-bottom: 1px solid #3c3c3c; color: #86827e; font-size: 8.5px; line-height: 1.55; }
+	.exam-meta { display: flex; min-height: 54px; margin-top: auto; justify-content: center; flex-direction: column; gap: 3px; padding: 10px 0; border-top: 1px solid #3c3c3c; border-bottom: 1px solid #3c3c3c; color: #86827e; font-size: 8.5px; line-height: 1.55; }
+	.exam-meta strong { color: var(--yellow); font-family: Georgia, serif; font-size: 16px; font-weight: 500; }
 	.exam-card .card-link { color: #fff; }
 	.exam-card .card-link b { background: var(--yellow); color: var(--ink); }
 

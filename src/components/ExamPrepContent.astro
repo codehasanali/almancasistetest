@@ -1,9 +1,10 @@
 ---
 const exams = [
-	{ id: 'goethe-telc-osd', title: 'Goethe / TELC / ÖSD', level: 'A1 - C1', logo: '/goethe-logo.png', logoAlt: 'Goethe-Institut', text: 'Hedeflediğiniz sertifika seviyesinin sınav formatını öğrenin; okuma, yazma, dinleme ve konuşma bölümlerine yönelik yoğun pratik yapın.', href: '/iletisim' },
-	{ id: 'testdaf', title: 'TestDaF Hazırlık', level: 'B2 - C1', logo: '/testdaf-logo.png', logoAlt: 'TestDaF', text: 'Akademik metin, grafik yorumlama, dinleme ve sözlü ifade çalışmalarını TestDaF formatına uygun deneme ve geri bildirimlerle geliştirin.', href: '/sinav-hazirligi/testdaf-hazirlik' },
-	{ id: 'abitur-matura', title: 'Abitur & Matura', level: 'Lise', text: 'Almanca edebiyat, metin analizi, yorumlama ve metin üretme becerilerini okul programınız ve sınav beklentileri doğrultusunda güçlendirin.', href: '/sinav-hazirligi/abitur-hazirlik' },
-	{ id: 'dsd', title: 'DSD 1-2 Hazırlık', level: 'B1 - C1', logo: '/dsd-hazirlik.jpg', logoAlt: 'Deutsches Sprachdiplom', text: 'Yazılı ve sözlü iletişim becerilerinizi DSD sınav yapısına göre geliştirin, proje sunumu ve sınav bölümlerine planlı şekilde hazırlanın.', href: '/sinav-hazirligi/dsd-1-hazirlik' },
+	{ id: 'goethe-telc', title: 'Goethe / TELC', level: 'A1 - C1', logo: '/goethe-logo.png', logoAlt: 'Goethe-Institut', text: 'Hedeflediğiniz sertifika seviyesinin sınav formatını öğrenin; okuma, yazma, dinleme ve konuşma bölümlerine yönelik yoğun pratik yapın.', package: '10 ders · 15.000 TL', href: '/iletisim' },
+	{ id: 'osd', title: 'ÖSD Hazırlık', level: 'A1 - C1', text: 'ÖSD sınavının okuma, dinleme, yazma ve konuşma bölümlerine seviyenize uygun denemeler ve ayrıntılı geri bildirimlerle hazırlanın.', package: '10 ders · 15.000 TL', href: '/sinav-hazirligi/osd-hazirlik' },
+	{ id: 'testdaf', title: 'TestDaF Hazırlık', level: 'B2 - C1', logo: '/testdaf-logo.png', logoAlt: 'TestDaF', text: 'Akademik metin, grafik yorumlama, dinleme ve sözlü ifade çalışmalarını TestDaF formatına uygun deneme ve geri bildirimlerle geliştirin.', package: '10 ders · 15.000 TL', href: '/sinav-hazirligi/testdaf-hazirlik' },
+	{ id: 'abitur-matura', title: 'Abitur & Matura', level: 'Lise', text: 'Almanca edebiyat, metin analizi, yorumlama ve metin üretme becerilerini okul programınız ve sınav beklentileri doğrultusunda güçlendirin.', package: '10 ders · 15.000 TL', href: '/sinav-hazirligi/abitur-hazirlik' },
+	{ id: 'dsd', title: 'DSD 1-2 Hazırlık', level: 'B1 - C1', logo: '/dsd-hazirlik.jpg', logoAlt: 'Deutsches Sprachdiplom', text: 'Yazılı ve sözlü iletişim becerilerinizi DSD sınav yapısına göre geliştirin, proje sunumu ve sınav bölümlerine planlı şekilde hazırlanın.', package: '10 ders · 15.000 TL', href: '/sinav-hazirligi/dsd-1-hazirlik' },
 ];
 ---
 
@@ -30,6 +31,7 @@ const exams = [
 					</div>
 					<h2>{exam.title}</h2>
 					<p>{exam.text}</p>
+					<strong class="program-price">{exam.package}</strong>
 					<a href={exam.href}>Programı İnceleyin <span>→</span></a>
 				</article>
 			))}
@@ -76,6 +78,7 @@ const exams = [
 	.program-top > span { padding: 7px 10px; background: #f6f1e1; color: #655e55; font-size: 8px; font-weight: 800; letter-spacing: .08em; text-transform: uppercase; }
 	.exam-grid h2 { margin: 25px 0 13px; color: var(--ink); font-family: Georgia, serif; font-size: 26px; font-weight: 500; }
 	.exam-grid article > p { min-height: 68px; margin: 0; color: #716b64; font-size: 12.5px; line-height: 1.75; }
+	.program-price { display: block; margin-top: 17px; color: var(--red); font-family: Georgia, serif; font-size: 19px; font-weight: 500; }
 	.exam-grid a { margin-top: 23px; color: var(--ink); }
 	.exam-grid a span { color: var(--red); }
 

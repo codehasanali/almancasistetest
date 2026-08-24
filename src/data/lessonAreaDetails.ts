@@ -53,4 +53,22 @@ export const lessonAreaDetails = [
 		method: 'İlerleme raporları resmî dil sertifikası yerine geçmez. Çalışan verileri ve şirket belgeleri kullanıldığında gizlilik ile erişim koşulları program öncesinde belirlenir.',
 		sources: [['BAMF Job-BSK', 'https://www.bamf.de/DE/Themen/Integration/ZugewanderteTeilnehmende/JobBSK/job-bsk-node.html'], ['TELC mesleki Almanca', 'https://www.telc.net/sprachpruefungen/zertifikatspruefung/deutsch/']],
 	},
+	{
+		slug: 'ausbildung-hakkinda-bilgi', code: 'AUSBILDUNG', title: 'Almanya’da Ausbildung Hakkında Bilgi', eyebrow: 'Mesleki eğitim ve başvuru hazırlığı',
+		lead: 'Ausbildung sistemini tanıyın, size uygun meslekleri araştırın ve Almanca başvuru sürecine planlı biçimde hazırlanın.',
+		paragraphs: ['Ausbildung, Almanya’da bir mesleğe yönelik teorik eğitim ile uygulamalı iş deneyimini bir araya getiren mesleki eğitim yollarını kapsar. Program türü, süresi, kabul koşulları ve gerekli Almanca seviyesi mesleğe ve kuruma göre değişebilir.', 'Deutschzeit programında Ausbildung seçeneklerini araştırırken kullanılan Almanca kavramları öğrenir; ilan okuma, başvuru belgesi hazırlama ve görüşmede kendinizi ifade etme becerilerinizi geliştirirsiniz. Resmî uygunluk, vize ve denklik kararları ilgili Alman kurumlarına aittir.'],
+		audience: ['Almanya’da mesleki eğitim hedefleyenler', 'Ausbildung meslekleri arasında seçim yapmak isteyenler', 'Almanca ilan ve başvuru koşullarını anlamakta zorlananlar', 'Başvuru ve görüşme Almancasını geliştirmek isteyenler'],
+		topics: ['Duale ve schulische Ausbildung kavramları', 'Meslek ve Ausbildungsplatz araştırması', 'İlanlardaki görev ve koşulları anlama', 'Almanca CV ve başvuru yazısı hazırlığı', 'İş görüşmesi soruları ve kendini tanıtma', 'Mesleki kelime dağarcığı ve iş yeri iletişimi'],
+		method: 'Program dil ve başvuru hazırlığı sunar; iş yerleştirme, vize, denklik veya kabul garantisi vermez. Mesleğe özgü güncel koşullar başvuru yapılacak kurum ve resmî makamların sayfalarından ayrıca doğrulanmalıdır.',
+		sources: [['Bundesagentur für Arbeit – Ausbildung', 'https://www.arbeitsagentur.de/bildung/ausbildung'], ['Make it in Germany – Vocational Training', 'https://www.make-it-in-germany.com/en/study-vocational-training/training-in-germany']],
+	},
+	{
+		slug: 'almanca-cv-hazirlama', code: 'LEBENSLAUF', title: 'Almanca CV Hazırlama', eyebrow: 'İş ve Ausbildung başvurusu',
+		lead: 'Deneyimlerinizi doğru Almanca ifadelerle anlatan, düzenli ve başvurduğunuz ilana uyarlanmış profesyonel bir Lebenslauf hazırlayın.',
+		paragraphs: ['Almanca CV çalışması mevcut özgeçmişinizin kelimesi kelimesine çevrilmesiyle sınırlı değildir. Eğitim, iş deneyimi, staj, dil ve dijital becerileriniz hedef pozisyonun beklentilerine göre seçilir ve açık bir yapıda sunulur.', 'Birlikte içerik sıralamasını oluşturur, görev ve başarılarınızı güçlü fiillerle ifade eder, dil ve yazım hatalarını düzeltiriz. Son kontrolde tarihlerin tutarlılığı, iletişim bilgileri ve başvuru dosyasının okunabilirliği değerlendirilir.'],
+		audience: ['Almanya’da işe veya Ausbildung programına başvuracaklar', 'Türkçe ya da İngilizce CV’sini Almancaya uyarlamak isteyenler', 'Mesleki deneyimini Almanca ifade etmekte zorlananlar', 'Mevcut Lebenslauf’u için dil ve yapı kontrolü isteyenler'],
+		topics: ['Kişisel bilgiler ve profesyonel kısa profil', 'Ters kronolojik eğitim ve iş deneyimi', 'Görev, sorumluluk ve başarıların Almanca ifadesi', 'Dil, teknik beceri ve sertifikaların sunumu', 'İlana göre anahtar kelime ve içerik uyarlaması', 'Yazım, dil bilgisi, biçim ve son kontrol'],
+		method: 'Çalışma sonunda dil ve içerik açısından düzenlenmiş bir Almanca CV hazırlanır. Tek bir şablon her başvuruya uygun olmadığından özgeçmişin hedef ilan için yeniden uyarlanması önerilir; işe kabul garantisi verilmez.',
+		sources: [['Bundesagentur für Arbeit – Bewerbung schreiben', 'https://www.arbeitsagentur.de/arbeitslos-arbeit-finden/bewerbungstraining/bewerbung-schreiben'], ['Europass CV', 'https://europass.europa.eu/en/create-europass-cv']],
+	},
 ];
