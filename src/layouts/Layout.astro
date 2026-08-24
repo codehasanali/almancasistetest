@@ -50,41 +50,50 @@ const { title = 'Deutschzeit' } = Astro.props;
 
 	.whatsapp-button {
 		position: fixed;
-		right: 24px;
-		bottom: 24px;
+		right: 20px;
+		bottom: 20px;
 		z-index: 1000;
-		display: grid;
-		width: 58px;
-		height: 58px;
-		place-items: center;
+		display: flex;
+		width: 60px;
+		height: 60px;
+		align-items: center;
+		justify-content: center;
+		padding: 12px;
+		border: 3px solid #fff;
 		border-radius: 50%;
 		background: #25d366;
-		box-shadow: 0 8px 24px rgba(0, 0, 0, .24);
-		transition: transform .2s ease, background-color .2s ease;
+		box-shadow: 0 6px 20px rgba(0, 0, 0, .28);
+		line-height: 0;
+		text-decoration: none;
+		transition: transform .2s ease, background-color .2s ease, box-shadow .2s ease;
 	}
 
 	.whatsapp-button:hover {
 		background: #1ebe5d;
 		transform: translateY(-3px);
+		box-shadow: 0 9px 24px rgba(0, 0, 0, .32);
 	}
 
 	.whatsapp-button:focus-visible {
-		outline: 3px solid #fff;
+		outline: 3px solid #128c4a;
 		outline-offset: 3px;
 	}
 
 	.whatsapp-button svg {
-		width: 34px;
-		height: 34px;
+		display: block;
+		width: 100%;
+		height: 100%;
+		flex: none;
 		fill: #fff;
 	}
 
 	@media (max-width: 600px) {
 		.whatsapp-button {
 			right: 16px;
-			bottom: 16px;
-			width: 54px;
-			height: 54px;
+			bottom: max(16px, env(safe-area-inset-bottom));
+			width: 56px;
+			height: 56px;
+			padding: 10px;
 		}
 	}
 </style>
